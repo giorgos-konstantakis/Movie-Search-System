@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import NavBar from './../NavBar'
 import { Link } from 'react-router-dom';
+import Popup from './Popup';
+import Modal from 'react-modal';
 
 function Movies() {
 
@@ -10,6 +12,7 @@ function Movies() {
     const [upcoming, setUpcoming] = useState([]);
     const [popularMovies, setPopularMovies] = useState([]);
     const [nowPlaying, setNowPlaying] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
 
     // Get Top Rated Movies
     const fetchTopRated = () => {
@@ -66,6 +69,14 @@ function Movies() {
         fetchNowPlaying();
     }, []);
 
+    // Search Modal Closer and Opener
+    function openModal() {
+        setModalOpen(true);
+    }
+
+    function closeModal() {
+        setModalOpen(false);
+    }
 
     return (
         <div>
@@ -76,13 +87,13 @@ function Movies() {
                     <h3>MOVIES</h3>
                 </div>
                 <div className="col-md-5 container">
-                    <form>
-                        <label>
-                            Search Movie:
-                            <input type="text" name="name" placeholder="type movie" />
-                        </label>
-                        <input type="submit" value="Search" />
-                    </form>
+                    <button onClick={openModal}>
+                        Search Movie
+                    </button>
+                    <Modal isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
+                        <button onClick={closeModal} style={{ float: "right" }}>close</button>
+                        <Popup />
+                    </Modal>
                 </div>
             </div>
 

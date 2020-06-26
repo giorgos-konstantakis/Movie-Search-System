@@ -12,6 +12,11 @@ import MovieInfoReverse from './components/Movie_Components/MovieInfoReverse'
 import SeasonEpisodes from './components/TVshow_Components/SeasonEpisodes'
 import Episode from './components/TVshow_Components/Episode'
 import People from './components/Cast_Crew_Components/People'
+import TopRatedMovies from './components/Movie_Components/MovieCategories/TopRatedMovies'
+import TopRatedMoviesReverse from './components/Movie_Components/MovieCategories/TopRatedMoviesReverse'
+import PopularMovies from './components/Movie_Components/MovieCategories/PopularMovies'
+import NowPlayingMovies from './components/Movie_Components/MovieCategories/NowPlayingMovies'
+import UpcomingMovies from './components/Movie_Components/MovieCategories/UpcomingMovies'
 
 // Pages' Routes
 const Routes = () => {
@@ -30,6 +35,11 @@ const Routes = () => {
                 <Route path="/episodes/:tv_show_name/:season_number/:id" exact component={SeasonEpisodes} />
                 <Route path="/episode/:tv_show_name/:season_number/:episode_number/:id" exact component={Episode} />
                 <Route path="/people/:id" exact component={People} />
+                <Route path="/movies/top_rated_movies/page/:page" exact component={TopRatedMovies} />
+                <Route path="/movies/top_rated_movies_reverse/page/:page" exact component={TopRatedMoviesReverse} />
+                <Route path="/movies/popular_movies" exact component={PopularMovies} />
+                <Route path="/movies/now_playing_movies" exact component={NowPlayingMovies} />
+                <Route path="/movies/upcoming_movies" exact component={UpcomingMovies} />
             </Switch>
         </BrowserRouter>
     )

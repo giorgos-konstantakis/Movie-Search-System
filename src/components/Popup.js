@@ -31,7 +31,7 @@ function Popup() {
             <div>
                 {searchMovies.map((movie, i) =>
                     <div key={i} action variant="secondary">
-                        <img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title}
+                        <Link to={`/movie_info/${movie.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                     </div>
                 )}
             </div>

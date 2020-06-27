@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios'
 import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
@@ -6,6 +9,13 @@ import { Link } from 'react-router-dom';
 function TopRatedMoviesReverse(props) {
 
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [genres, setGenres] = useState([]);
+
+    const fetchGenres = () => {
+        axios.get(`${process.env.REACT_APP_API}genre/movie/list?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US`)
+            .then(res => { setGenres(res.data.genres) })
+            .catch(error => alert('Error fetching the genres.'))
+    };
 
     const fetchTopRated = () => {
         axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page}`)
@@ -14,8 +24,13 @@ function TopRatedMoviesReverse(props) {
     };
 
     useEffect(() => {
+        fetchGenres();
+    }, []);
+
+    useEffect(() => {
         fetchTopRated();
     }, []);
+
 
     // Setting buttons for changing pages in page No 1
     const firstPage = () => {
@@ -68,6 +83,15 @@ function TopRatedMoviesReverse(props) {
         <div>
             <NavBar />
             <div className="container my-3">
+                <div className="my-2 text-right">
+                    <DropdownButton title="Search Top Rated Movies by Genre" id="xx">
+                        {genres && genres.map((genre, i) =>
+                            <Link><Dropdown.Item key={i} eventKey={i}>
+                                {genre.name}
+                            </Dropdown.Item></Link>
+                        )}
+                    </DropdownButton>
+                </div>
                 <div className="card">
                     <div className="card-header text-center">
                         Top Rated Movies

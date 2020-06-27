@@ -14,6 +14,8 @@ import Episode from './components/TVshow_Components/Episode'
 import People from './components/Cast_Crew_Components/People'
 import TopRatedMovies from './components/Movie_Components/MovieCategories/TopRatedMovies'
 import TopRatedMoviesReverse from './components/Movie_Components/MovieCategories/TopRatedMoviesReverse'
+import TopRatedMoviesByGenre from './components/Movie_Components/MovieCategories/TopRatedMoviesByGenre'
+import TopRatedMoviesByGenreReverse from './components/Movie_Components/MovieCategories/TopRatedMoviesByGenreReverse'
 import PopularMovies from './components/Movie_Components/MovieCategories/PopularMovies'
 import NowPlayingMovies from './components/Movie_Components/MovieCategories/NowPlayingMovies'
 import UpcomingMovies from './components/Movie_Components/MovieCategories/UpcomingMovies'
@@ -37,6 +39,8 @@ const Routes = () => {
                 <Route path="/people/:id" exact component={People} />
                 <Route path="/movies/top_rated_movies/page/:page" exact component={TopRatedMovies} />
                 <Route path="/movies/top_rated_movies_reverse/page/:page" exact component={TopRatedMoviesReverse} />
+                <Route path="/top_rated_movies_by_genre/page/:page/genre_id/:genre_id/genre_name/:genre_name" exact component={TopRatedMoviesByGenre} />
+                <Route path="/top_rated_movies_by_genre_reverse/page/:page/genre_id/:genre_id/genre_name/:genre_name" exact component={TopRatedMoviesByGenreReverse} />
                 <Route path="/movies/popular_movies" exact component={PopularMovies} />
                 <Route path="/movies/now_playing_movies" exact component={NowPlayingMovies} />
                 <Route path="/movies/upcoming_movies" exact component={UpcomingMovies} />

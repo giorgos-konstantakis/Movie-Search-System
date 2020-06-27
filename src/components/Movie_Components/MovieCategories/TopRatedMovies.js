@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 import axios from 'axios'
 import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
@@ -6,12 +9,23 @@ import { Link } from 'react-router-dom';
 function TopRatedMovies(props) {
 
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [genres, setGenres] = useState([]);
+
+    const fetchGenres = () => {
+        axios.get(`${process.env.REACT_APP_API}genre/movie/list?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US`)
+            .then(res => { setGenres(res.data.genres) })
+            .catch(error => alert('Error fetching the genres.'))
+    };
 
     const fetchTopRated = () => {
         axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page}`)
             .then(res => { setTopRatedMovies(res.data) })
             .catch(error => alert('Error fetching the top rated movies.'))
     };
+
+    useEffect(() => {
+        fetchGenres();
+    }, []);
 
     useEffect(() => {
         fetchTopRated();
@@ -24,7 +38,7 @@ function TopRatedMovies(props) {
                 <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies.page * 20}</span>
                 <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 1}`}>
                     <button type="button" className="btn btn-dark">
-                        Next Page<i class="fas fa-angle-double-right ml-2"></i>
+                        Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
             </div>
@@ -68,6 +82,15 @@ function TopRatedMovies(props) {
         <div>
             <NavBar />
             <div className="container my-3">
+                <div className="my-2 text-right">
+                    <DropdownButton title="Search Top Rated Movies by Genre" id="xx">
+                        {genres && genres.map((genre, i) =>
+                            <Dropdown.Item as={Link} to={`/top_rated_movies_by_genre/page/${1}/genre_id/${genre.id}/genre_name/${genre.name}`} eventKey={i}>
+                                {genre.name}
+                            </Dropdown.Item>
+                        )}
+                    </DropdownButton>
+                </div>
                 <div className="card">
                     <div className="card-header text-center">
                         Top Rated Movies

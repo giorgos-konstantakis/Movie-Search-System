@@ -10,6 +10,10 @@ function TopRatedMoviesByGenreReverse(props) {
     var count = 0;
 
     const [topRatedMoviesByGenre, setTopRatedMoviesByGenre] = useState([]);
+    const [topRatedMoviesByGenre2, setTopRatedMoviesByGenre2] = useState([]);
+    const [topRatedMoviesByGenre3, setTopRatedMoviesByGenre3] = useState([]);
+    const [topRatedMoviesByGenre4, setTopRatedMoviesByGenre4] = useState([]);
+    const [topRatedMoviesByGenre5, setTopRatedMoviesByGenre5] = useState([]);
 
     const fetchTopRatedByGenre = () => {
         axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page}`)
@@ -21,12 +25,52 @@ function TopRatedMoviesByGenreReverse(props) {
         fetchTopRatedByGenre();
     }, []);
 
+    const fetchTopRatedByGenre2 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page + 1}`)
+            .then(res => { setTopRatedMoviesByGenre2(res.data) })
+            .catch(error => alert(`Error fetching the top rated movies.`))
+    };
+
+    useEffect(() => {
+        fetchTopRatedByGenre2();
+    }, []);
+
+    const fetchTopRatedByGenre3 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page + 2}`)
+            .then(res => { setTopRatedMoviesByGenre3(res.data) })
+            .catch(error => alert(`Error fetching the top rated movies.`))
+    };
+
+    useEffect(() => {
+        fetchTopRatedByGenre3();
+    }, []);
+
+    const fetchTopRatedByGenre4 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page + 3}`)
+            .then(res => { setTopRatedMoviesByGenre4(res.data) })
+            .catch(error => alert(`Error fetching the top rated movies.`))
+    };
+
+    useEffect(() => {
+        fetchTopRatedByGenre4();
+    }, []);
+
+    const fetchTopRatedByGenre5 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page + 4}`)
+            .then(res => { setTopRatedMoviesByGenre5(res.data) })
+            .catch(error => alert(`Error fetching the top rated movies.`))
+    };
+
+    useEffect(() => {
+        fetchTopRatedByGenre5();
+    }, []);
+
     // Setting buttons for changing pages in page No 1
     const firstPage = (count) => {
         return (
             <div className="text-center col-md-12">
                 <span className="mr-5">Results: {count}</span>
-                <Link to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) + 1}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
+                <Link to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) + 5}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
                     <button type="button" className="btn btn-dark">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -40,7 +84,7 @@ function TopRatedMoviesByGenreReverse(props) {
         return (
             <div className="text-center col-md-12">
                 <span className="mr-5">Results: {count}</span>
-                <Link to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) - 1}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
+                <Link to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) - 5}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
@@ -54,12 +98,12 @@ function TopRatedMoviesByGenreReverse(props) {
         return (
             <div className="text-center col-md-12">
                 <span className="mr-5">Results: {count} </span>
-                <Link className="mr-5" to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) - 1}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
+                <Link className="mr-5" to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) - 5}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) + 1}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
+                <Link to={`/top_rated_movies_by_genre/page/${parseInt(props.match.params.page) + 5}/genre_id/${props.match.params.genre_id}/genre_name/${props.match.params.genre_name}`}>
                     <button type="button" className="btn btn-dark">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -78,6 +122,50 @@ function TopRatedMoviesByGenreReverse(props) {
                     </div>
                     <div className="card-body">
                         {topRatedMoviesByGenre.results && topRatedMoviesByGenre.results.map((topRated, i) => {
+                            if (topRated.genre_ids.includes(parseInt(props.match.params.genre_id))) {
+                                count += 1;
+                                return (
+                                    <div key={i} className="my-1">
+                                        <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    </div>
+                                )
+                            }
+                        }
+                        )}
+                        {topRatedMoviesByGenre2.results && topRatedMoviesByGenre2.results.map((topRated, i) => {
+                            if (topRated.genre_ids.includes(parseInt(props.match.params.genre_id))) {
+                                count += 1;
+                                return (
+                                    <div key={i} className="my-1">
+                                        <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    </div>
+                                )
+                            }
+                        }
+                        )}
+                        {topRatedMoviesByGenre3.results && topRatedMoviesByGenre3.results.map((topRated, i) => {
+                            if (topRated.genre_ids.includes(parseInt(props.match.params.genre_id))) {
+                                count += 1;
+                                return (
+                                    <div key={i} className="my-1">
+                                        <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    </div>
+                                )
+                            }
+                        }
+                        )}
+                        {topRatedMoviesByGenre4.results && topRatedMoviesByGenre4.results.map((topRated, i) => {
+                            if (topRated.genre_ids.includes(parseInt(props.match.params.genre_id))) {
+                                count += 1;
+                                return (
+                                    <div key={i} className="my-1">
+                                        <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    </div>
+                                )
+                            }
+                        }
+                        )}
+                        {topRatedMoviesByGenre5.results && topRatedMoviesByGenre5.results.map((topRated, i) => {
                             if (topRated.genre_ids.includes(parseInt(props.match.params.genre_id))) {
                                 count += 1;
                                 return (

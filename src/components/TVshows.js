@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import NavBar from './../NavBar'
 import { Link } from 'react-router-dom';
+import PopupSearchTV from './PopupSearchTV';
+import Modal from 'react-modal';
 
 function TVshows() {
     const [topRatedTV, setTopRatedTV] = useState([]);
@@ -9,6 +11,7 @@ function TVshows() {
     const [onTheAir, setOnTheAir] = useState([]);
     const [popularTV, setPopularTV] = useState([]);
     const [airingTonight, setAiringTonight] = useState([]);
+    const [modalOpen, setModalOpen] = useState(false);
 
     // Get Top Rated TV
     const fetchTopRatedTV = () => {
@@ -65,6 +68,14 @@ function TVshows() {
         fetchAiringTonight();
     }, []);
 
+    // Search Modal Closer and Opener
+    function openModal() {
+        setModalOpen(true);
+    }
+
+    function closeModal() {
+        setModalOpen(false);
+    }
 
     return (
         <div>
@@ -72,16 +83,16 @@ function TVshows() {
 
             <div className="row mt-2 mx-2">
                 <div className="col-md-5 container text-center">
-                    <h3>TV</h3>
+                    <h3>TV shows</h3>
                 </div>
                 <div className="col-md-5 container">
-                    <form>
-                        <label>
-                            Search TV show:
-                            <input type="text" name="name" placeholder="type tv show" />
-                        </label>
-                        <input type="submit" value="Search" />
-                    </form>
+                    <button onClick={openModal}>
+                        Search TV Show
+                    </button>
+                    <Modal isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
+                        <button onClick={closeModal} style={{ float: "right" }}>close</button>
+                        <PopupSearchTV />
+                    </Modal>
                 </div>
             </div>
 

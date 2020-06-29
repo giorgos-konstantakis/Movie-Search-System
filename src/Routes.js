@@ -17,8 +17,11 @@ import TopRatedMoviesReverse from './components/Movie_Components/MovieCategories
 import TopRatedMoviesByGenre from './components/Movie_Components/MovieCategories/TopRatedMoviesByGenre'
 import TopRatedMoviesByGenreReverse from './components/Movie_Components/MovieCategories/TopRatedMoviesByGenreReverse'
 import PopularMovies from './components/Movie_Components/MovieCategories/PopularMovies'
+import PopularMoviesReverse from './components/Movie_Components/MovieCategories/PopularMoviesReverse'
 import NowPlayingMovies from './components/Movie_Components/MovieCategories/NowPlayingMovies'
+import NowPlayingMoviesReverse from './components/Movie_Components/MovieCategories/NowPlayingMoviesReverse'
 import UpcomingMovies from './components/Movie_Components/MovieCategories/UpcomingMovies'
+import UpcomingMoviesReverse from './components/Movie_Components/MovieCategories/UpcomingMoviesReverse'
 
 // Pages' Routes
 const Routes = () => {
@@ -41,9 +44,12 @@ const Routes = () => {
                 <Route path="/movies/top_rated_movies_reverse/page/:page" exact component={TopRatedMoviesReverse} />
                 <Route path="/top_rated_movies_by_genre/page/:page/genre_id/:genre_id/genre_name/:genre_name" exact component={TopRatedMoviesByGenre} />
                 <Route path="/top_rated_movies_by_genre_reverse/page/:page/genre_id/:genre_id/genre_name/:genre_name" exact component={TopRatedMoviesByGenreReverse} />
-                <Route path="/movies/popular_movies" exact component={PopularMovies} />
-                <Route path="/movies/now_playing_movies" exact component={NowPlayingMovies} />
-                <Route path="/movies/upcoming_movies" exact component={UpcomingMovies} />
+                <Route path="/movies/popular_movies/page/:page" exact component={PopularMovies} />
+                <Route path="/movies/popular_movies_reverse/page/:page" exact component={PopularMoviesReverse} />
+                <Route path="/movies/now_playing_movies/page/:page" exact component={NowPlayingMovies} />
+                <Route path="/movies/now_playing_movies_reverse/page/:page" exact component={NowPlayingMoviesReverse} />
+                <Route path="/movies/upcoming_movies/page/:page" exact component={UpcomingMovies} />
+                <Route path="/movies/upcoming_movies_reverse/page/:page" exact component={UpcomingMoviesReverse} />
             </Switch>
         </BrowserRouter>
     )

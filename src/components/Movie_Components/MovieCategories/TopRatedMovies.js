@@ -8,7 +8,11 @@ import { Link } from 'react-router-dom';
 
 function TopRatedMovies(props) {
 
+    var count = 1;
+
     const [topRatedMovies, setTopRatedMovies] = useState([]);
+    const [topRatedMovies2, setTopRatedMovies2] = useState([]);
+    const [topRatedMovies3, setTopRatedMovies3] = useState([]);
     const [genres, setGenres] = useState([]);
 
     const fetchGenres = () => {
@@ -22,6 +26,16 @@ function TopRatedMovies(props) {
             .then(res => { setTopRatedMovies(res.data) })
             .catch(error => alert('Error fetching the top rated movies.'))
     };
+    const fetchTopRated2 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${parseInt(props.match.params.page) + 1}`)
+            .then(res => { setTopRatedMovies2(res.data) })
+            .catch(error => alert('Error fetching the top rated movies.'))
+    };
+    const fetchTopRated3 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${parseInt(props.match.params.page) + 2}`)
+            .then(res => { setTopRatedMovies3(res.data) })
+            .catch(error => alert('Error fetching the top rated movies.'))
+    };
 
     useEffect(() => {
         fetchGenres();
@@ -31,12 +45,22 @@ function TopRatedMovies(props) {
         fetchTopRated();
     }, []);
 
+    useEffect(() => {
+        fetchTopRated2();
+    }, []);
+
+    useEffect(() => {
+        fetchTopRated3();
+    }, []);
+
+    console.log(topRatedMovies3.page)
+
     // Setting buttons for changing pages in page No 1
     const firstPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies.page * 20}</span>
-                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 1}`}>
+                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
+                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 3}`}>
                     <button type="button" className="btn btn-dark">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -49,8 +73,8 @@ function TopRatedMovies(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies.page * 20}</span>
-                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 1}`}>
+                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
+                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
@@ -63,13 +87,13 @@ function TopRatedMovies(props) {
     const renderPages = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies.page * 20}</span>
-                <Link className="mr-5" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 1}`}>
+                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
+                <Link className="mr-5" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 1}`}>
+                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 3}`}>
                     <button type="button" className="btn btn-dark">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -97,6 +121,16 @@ function TopRatedMovies(props) {
                     </div>
                     <div className="card-body">
                         {topRatedMovies.results && topRatedMovies.results.map((topRated, i) =>
+                            <div key={i} className="my-1">
+                                <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                            </div>
+                        )}
+                        {topRatedMovies2.results && topRatedMovies2.results.map((topRated, i) =>
+                            <div key={i} className="my-1">
+                                <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                            </div>
+                        )}
+                        {topRatedMovies3.results && topRatedMovies3.results.map((topRated, i) =>
                             <div key={i} className="my-1">
                                 <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                             </div>

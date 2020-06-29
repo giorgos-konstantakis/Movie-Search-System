@@ -124,7 +124,7 @@ function Movies() {
                                     <Link to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link to="/movies/now_playing_movies">View Now Playing</Link>
+                            <Link to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ function Movies() {
                                     <Link to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link to="/movies/upcoming_movies">View Upcoming Releases</Link>
+                            <Link to={`/movies/upcoming_movies/page/${upcoming.page}`}>View Upcoming Releases</Link>
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ function Movies() {
                                     <Link to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )}
-                            <Link to="/movies/popular_movies">View All Popular Movies</Link>
+                            <Link to={`/movies/popular_movies/page/${popularMovies.page}`}>View All Popular Movies</Link>
                         </div>
                     </div>
                 </div>

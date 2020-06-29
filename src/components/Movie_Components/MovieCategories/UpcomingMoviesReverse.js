@@ -6,11 +6,13 @@ import axios from 'axios'
 import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
 
-function TopRatedMoviesReverse(props) {
+function UpcomingMoviesReverse(props) {
 
-    const [topRatedMovies, setTopRatedMovies] = useState([]);
-    const [topRatedMovies2, setTopRatedMovies2] = useState([]);
-    const [topRatedMovies3, setTopRatedMovies3] = useState([]);
+    var count = 1;
+
+    const [upcomingMovies, setupcomingMovies] = useState([]);
+    const [upcomingMovies2, setupcomingMovies2] = useState([]);
+    const [upcomingMovies3, setupcomingMovies3] = useState([]);
     const [genres, setGenres] = useState([]);
 
     const fetchGenres = () => {
@@ -19,20 +21,19 @@ function TopRatedMoviesReverse(props) {
             .catch(error => alert('Error fetching the genres.'))
     };
 
-    const fetchTopRated = () => {
-        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page}`)
-            .then(res => { setTopRatedMovies(res.data) })
+    const fetchupcoming = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/upcoming?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${props.match.params.page}`)
+            .then(res => { setupcomingMovies(res.data) })
             .catch(error => alert('Error fetching the top rated movies.'))
     };
-
-    const fetchTopRated2 = () => {
-        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${parseInt(props.match.params.page) + 1}`)
-            .then(res => { setTopRatedMovies2(res.data) })
+    const fetchupcoming2 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/upcoming?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${parseInt(props.match.params.page) + 1}`)
+            .then(res => { setupcomingMovies2(res.data) })
             .catch(error => alert('Error fetching the top rated movies.'))
     };
-    const fetchTopRated3 = () => {
-        axios.get(`${process.env.REACT_APP_API}movie/top_rated?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${parseInt(props.match.params.page) + 2}`)
-            .then(res => { setTopRatedMovies3(res.data) })
+    const fetchupcoming3 = () => {
+        axios.get(`${process.env.REACT_APP_API}movie/upcoming?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=${parseInt(props.match.params.page) + 2}`)
+            .then(res => { setupcomingMovies3(res.data) })
             .catch(error => alert('Error fetching the top rated movies.'))
     };
 
@@ -41,25 +42,27 @@ function TopRatedMoviesReverse(props) {
     }, []);
 
     useEffect(() => {
-        fetchTopRated();
+        fetchupcoming();
     }, []);
 
     useEffect(() => {
-        fetchTopRated2();
+        fetchupcoming2();
     }, []);
 
     useEffect(() => {
-        fetchTopRated3();
+        fetchupcoming3();
     }, []);
+
+    console.log(upcomingMovies3.page)
 
     // Setting buttons for changing pages in page No 1
     const firstPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
-                <Link to={`/movies/top_rated_movies/page/${topRatedMovies.page + 3}`}>
+                <span className="mr-5">Results: {(upcomingMovies.page - 1) * 20 + 1} - {upcomingMovies3.page * 20}</span>
+                <Link to={`/movies/upcoming_movies/page/${upcomingMovies.page + 3}`}>
                     <button type="button" className="btn btn-dark">
-                        Next Page<i class="fas fa-angle-double-right ml-2"></i>
+                        Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
             </div>
@@ -70,8 +73,8 @@ function TopRatedMoviesReverse(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
-                <Link to={`/movies/top_rated_movies/page/${topRatedMovies.page - 3}`}>
+                <span className="mr-5">Results: {(upcomingMovies.page - 1) * 20 + 1} - {upcomingMovies3.page * 20}</span>
+                <Link to={`/movies/upcoming_movies/page/${upcomingMovies.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
@@ -84,13 +87,13 @@ function TopRatedMoviesReverse(props) {
     const renderPages = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
-                <Link className="mr-5" to={`/movies/top_rated_movies/page/${topRatedMovies.page - 3}`}>
+                <span className="mr-5">Results: {(upcomingMovies.page - 1) * 20 + 1} - {upcomingMovies3.page * 20}</span>
+                <Link className="mr-5" to={`/movies/upcoming_movies/page/${upcomingMovies.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/movies/top_rated_movies/page/${topRatedMovies.page + 3}`}>
+                <Link to={`/movies/upcoming_movies/page/${upcomingMovies.page + 3}`}>
                     <button type="button" className="btn btn-dark">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -106,38 +109,38 @@ function TopRatedMoviesReverse(props) {
                 <div className="my-2 text-right">
                     <DropdownButton title="Search Top Rated Movies by Genre" id="xx">
                         {genres && genres.map((genre, i) =>
-                            <Link><Dropdown.Item key={i} eventKey={i}>
+                            <Dropdown.Item as={Link} to={`/upcoming_movies_by_genre/page/${1}/genre_id/${genre.id}/genre_name/${genre.name}`} eventKey={i}>
                                 {genre.name}
-                            </Dropdown.Item></Link>
+                            </Dropdown.Item>
                         )}
                     </DropdownButton>
                 </div>
                 <div className="card">
                     <div className="card-header text-center">
-                        Top Rated Movies
+                        Upcoming Movies
                     </div>
                     <div className="card-body">
-                        {topRatedMovies.results && topRatedMovies.results.map((topRated, i) =>
+                        {upcomingMovies.results && upcomingMovies.results.map((upcoming, i) =>
                             <div key={i} className="my-1">
-                                <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                <Link to={`/movie_info/${upcoming.id}`}><img src={`https://image.tmdb.org/t/p/w45/${upcoming.poster_path}`} alt="new" /> {upcoming.title}</Link>
                             </div>
                         )}
-                        {topRatedMovies2.results && topRatedMovies2.results.map((topRated, i) =>
+                        {upcomingMovies2.results && upcomingMovies2.results.map((upcoming, i) =>
                             <div key={i} className="my-1">
-                                <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                <Link to={`/movie_info/${upcoming.id}`}><img src={`https://image.tmdb.org/t/p/w45/${upcoming.poster_path}`} alt="new" /> {upcoming.title}</Link>
                             </div>
                         )}
-                        {topRatedMovies3.results && topRatedMovies3.results.map((topRated, i) =>
+                        {upcomingMovies3.results && upcomingMovies3.results.map((upcoming, i) =>
                             <div key={i} className="my-1">
-                                <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                <Link to={`/movie_info/${upcoming.id}`}><img src={`https://image.tmdb.org/t/p/w45/${upcoming.poster_path}`} alt="new" /> {upcoming.title}</Link>
                             </div>
                         )}
                     </div>
                 </div>
                 <div className="row mb-5 mt-3">
-                    {topRatedMovies.page == 1 && firstPage()}
-                    {topRatedMovies3.page >= 51 && lastPage()}
-                    {topRatedMovies.page != 1 && topRatedMovies3.page != 51 && renderPages()}
+                    {upcomingMovies.page == 1 && firstPage()}
+                    {upcomingMovies.page == 50 && lastPage()}
+                    {upcomingMovies.page != 1 && upcomingMovies.page != upcomingMovies.total_pages && renderPages()}
                 </div>
             </div>
         </div>
@@ -145,4 +148,4 @@ function TopRatedMoviesReverse(props) {
 
 }
 
-export default TopRatedMoviesReverse;
+export default UpcomingMoviesReverse;

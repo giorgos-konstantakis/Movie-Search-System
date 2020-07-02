@@ -22,6 +22,14 @@ import NowPlayingMovies from './components/Movie_Components/MovieCategories/NowP
 import NowPlayingMoviesReverse from './components/Movie_Components/MovieCategories/NowPlayingMoviesReverse'
 import UpcomingMovies from './components/Movie_Components/MovieCategories/UpcomingMovies'
 import UpcomingMoviesReverse from './components/Movie_Components/MovieCategories/UpcomingMoviesReverse'
+import AiringTonightTV from './components/TVshow_Components/TVshowCategories/AiringTonightTV'
+import AiringTonightTVReverse from './components/TVshow_Components/TVshowCategories/AiringTonightTVReverse'
+import OnTheAirTV from './components/TVshow_Components/TVshowCategories/OnTheAirTV'
+import OnTheAirTVReverse from './components/TVshow_Components/TVshowCategories/OnTheAirTVReverse'
+import TopRatedTV from './components/TVshow_Components/TVshowCategories/TopRatedTV'
+import TopRatedTVReverse from './components/TVshow_Components/TVshowCategories/TopRatedTVReverse'
+import PopularTV from './components/TVshow_Components/TVshowCategories/PopularTV'
+import PopularTVReverse from './components/TVshow_Components/TVshowCategories/PopularTVReverse'
 
 // Pages' Routes
 const Routes = () => {
@@ -50,6 +58,14 @@ const Routes = () => {
                 <Route path="/movies/now_playing_movies_reverse/page/:page" exact component={NowPlayingMoviesReverse} />
                 <Route path="/movies/upcoming_movies/page/:page" exact component={UpcomingMovies} />
                 <Route path="/movies/upcoming_movies_reverse/page/:page" exact component={UpcomingMoviesReverse} />
+                <Route path="/tv_shows/top_rated_tv/page/:page" exact component={TopRatedTV} />
+                <Route path="/tv_shows/top_rated_tv_reverse/page/:page" exact component={TopRatedTVReverse} />
+                <Route path="/tv_shows/popular_tv/page/:page" exact component={PopularTV} />
+                <Route path="/tv_shows/popular_tv_reverse/page/:page" exact component={PopularTVReverse} />
+                <Route path="/tv_shows/on_the_air_tv/page/:page" exact component={OnTheAirTV} />
+                <Route path="/tv_shows/on_the_air_tv_reverse/page/:page" exact component={OnTheAirTVReverse} />
+                <Route path="/tv_shows/airing_tonight_tv/page/:page" exact component={AiringTonightTV} />
+                <Route path="/tv_shows/airing_tonight_tv_reverse/page/:page" exact component={AiringTonightTVReverse} />
             </Switch>
         </BrowserRouter>
     )

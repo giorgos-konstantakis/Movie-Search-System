@@ -121,10 +121,10 @@ function TVshows() {
                         <div className="card-body">
                             {airingTonight && airingTonight.slice(0, 5).map((air, i) =>
                                 <div key={i} className="my-1">
-                                    <img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}
+                                    <Link to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
                                 </div>
                             )}
-                            <Link>View Airing Tonight</Link>
+                            <Link to={`/tv_shows/airing_tonight_tv/page/${1}`}>View Airing Tonight</Link>
                         </div>
                     </div>
                 </div>
@@ -136,16 +136,16 @@ function TVshows() {
                         <div className="card-body">
                             {onTheAir && onTheAir.slice(0, 5).map((air, i) =>
                                 <div className="my-1" key={i}>
-                                    <img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}
+                                    <Link to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
                                 </div>
                             )}
-                            <Link>View On The Air</Link>
+                            <Link to={`/tv_shows/on_the_air_tv/page/${1}`}>View On The Air</Link>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="row mt-2 mx-2">
+            <div className="row mt-2 mb-5 mx-2">
 
                 <div className="col-md-6">
                     <div className="card">
@@ -155,10 +155,10 @@ function TVshows() {
                         <div className="card-body">
                             {topRatedTV.results && topRatedTV.results.slice(0, 5).map((topRated, i) =>
                                 <div key={i} className="my-1">
-                                    <img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}
+                                    <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name} </Link>
                                 </div>
                             )}
-                            <Link>View All Top Rated TV Shows</Link>
+                            <Link to={`/tv_shows/top_rated_tv/page/${1}`}>View All Top Rated TV Shows</Link>
                         </div>
                     </div>
                 </div>
@@ -171,10 +171,10 @@ function TVshows() {
                         <div className="card-body">
                             {popularTV.results && popularTV.results.slice(0, 5).map((popular, i) =>
                                 <div key={i} className="my-1">
-                                    <img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.name}
+                                    <Link to={`/tv_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.name} </Link>
                                 </div>
                             )}
-                            <Link>View All Popular TV shows</Link>
+                            <Link to={`/tv_shows/popular_tv/page/${1}`}>View All Popular TV shows</Link>
                         </div>
                     </div>
                 </div>

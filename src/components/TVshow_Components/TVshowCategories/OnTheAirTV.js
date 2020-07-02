@@ -7,6 +7,7 @@ import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
 
 function OnTheAirTV(props) {
+    var count = 0;
     const [onTheAir, setonTheAir] = useState([]);
     const [onTheAir2, setonTheAir2] = useState([]);
     const [onTheAir3, setonTheAir3] = useState([]);
@@ -57,7 +58,7 @@ function OnTheAirTV(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(onTheAir.page - 1) * 20 + 1} - {onTheAir3.page * 20}</span>
+                <span className="mr-5">Results: {(onTheAir.page - 1) * 20 + 1} - {(onTheAir.page - 1) * 20 + 1 + count}</span>
                 <Link to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
@@ -95,20 +96,32 @@ function OnTheAirTV(props) {
                         TV : On The Air
                     </div>
                     <div className="card-body">
-                        {onTheAir.results && onTheAir.results.map((onTheAir, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
-                            </div>
+                        {onTheAir.results && onTheAir.results.map((onTheAir, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {onTheAir2.results && onTheAir2.results.map((onTheAir, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
-                            </div>
+                        {onTheAir2.results && onTheAir2.results.map((onTheAir, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {onTheAir3.results && onTheAir3.results.map((onTheAir, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
-                            </div>
+                        {onTheAir3.results && onTheAir3.results.map((onTheAir, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
                     </div>
                 </div>

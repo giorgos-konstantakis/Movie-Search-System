@@ -7,6 +7,7 @@ import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
 
 function PopularTVReverse(props) {
+    var count = 0;
     const [popularTV, setpopularTV] = useState([]);
     const [popularTV2, setpopularTV2] = useState([]);
     const [popularTV3, setpopularTV3] = useState([]);
@@ -57,7 +58,7 @@ function PopularTVReverse(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularTV.page - 1) * 20 + 1} - {popularTV3.page * 20}</span>
+                <span className="mr-5">Results: {(popularTV.page - 1) * 20 + 1} - {(popularTV.page - 1) * 20 + 1 + count}</span>
                 <Link to={`/tv_shows/popular_tv/page/${popularTV.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
@@ -95,20 +96,32 @@ function PopularTVReverse(props) {
                         Popular TV Shows
                     </div>
                     <div className="card-body">
-                        {popularTV.results && popularTV.results.map((popularTV, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
-                            </div>
+                        {popularTV.results && popularTV.results.map((popularTV, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {popularTV2.results && popularTV2.results.map((popularTV, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
-                            </div>
+                        {popularTV2.results && popularTV2.results.map((popularTV, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {popularTV3.results && popularTV3.results.map((popularTV, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
-                            </div>
+                        {popularTV3.results && popularTV3.results.map((popularTV, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
                     </div>
                 </div>

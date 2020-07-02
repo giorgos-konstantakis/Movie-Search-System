@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import NavBar from './../NavBar'
 import { Link } from 'react-router-dom';
-import PopupSearchTV from './PopupSearchTV';
+import PopupSearchTV from './TVshow_Components/PopupSearchTV';
 import Modal from 'react-modal';
 
 function TVshows() {

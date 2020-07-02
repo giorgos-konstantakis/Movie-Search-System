@@ -7,6 +7,7 @@ import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
 
 function TopRatedTVReverse(props) {
+    var count = 0;
     const [topRatedTV, settopRatedTV] = useState([]);
     const [topRatedTV2, settopRatedTV2] = useState([]);
     const [topRatedTV3, settopRatedTV3] = useState([]);
@@ -59,7 +60,7 @@ function TopRatedTVReverse(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedTV.page - 1) * 20 + 1} - {topRatedTV3.page * 20}</span>
+                <span className="mr-5">Results: {(topRatedTV.page - 1) * 20 + 1} - {(topRatedTV.page - 1) * 20 + 1 + count}</span>
                 <Link to={`/tv_shows/top_rated_tv/page/${topRatedTV.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
@@ -97,27 +98,39 @@ function TopRatedTVReverse(props) {
                         Top Rated TV Shows
                     </div>
                     <div className="card-body">
-                        {topRatedTV.results && topRatedTV.results.map((topRated, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}</Link>
-                            </div>
+                        {topRatedTV.results && topRatedTV.results.map((topRated, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {topRatedTV2.results && topRatedTV2.results.map((topRated, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}</Link>
-                            </div>
+                        {topRatedTV2.results && topRatedTV2.results.map((topRated, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {topRatedTV3.results && topRatedTV3.results.map((topRated, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}</Link>
-                            </div>
+                        {topRatedTV3.results && topRatedTV3.results.map((topRated, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
                     </div>
                 </div>
                 <div className="row mb-5 mt-3">
                     {topRatedTV.page == 1 && firstPage()}
-                    {topRatedTV.page == 50 && lastPage()}
-                    {topRatedTV.page != 1 && topRatedTV.page != topRatedTV.total_pages && renderPages()}
+                    {topRatedTV.page == 40 && lastPage()}
+                    {topRatedTV.page != 1 && topRatedTV.page != 40 && renderPages()}
                 </div>
             </div>
         </div>

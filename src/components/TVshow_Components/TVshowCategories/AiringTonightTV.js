@@ -7,6 +7,7 @@ import NavBar from './../../../NavBar'
 import { Link } from 'react-router-dom';
 
 function AiringTonightTV(props) {
+    var count = 0;
     const [airingTonight, setairingTonight] = useState([]);
     const [airingTonight2, setairingTonight2] = useState([]);
     const [airingTonight3, setairingTonight3] = useState([]);
@@ -59,7 +60,7 @@ function AiringTonightTV(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(airingTonight.page - 1) * 20 + 1} - {airingTonight3.page * 20}</span>
+                <span className="mr-5">Results: {(airingTonight.page - 1) * 20 + 1} - {(airingTonight.page - 1) * 20 + 1 + count}</span>
                 <Link to={`/tv_shows/airing_tonight_tv_reverse/page/${airingTonight.page - 3}`}>
                     <button type="button" className="btn btn-dark">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
@@ -97,20 +98,32 @@ function AiringTonightTV(props) {
                         TV : Airing Tonight
                     </div>
                     <div className="card-body">
-                        {airingTonight.results && airingTonight.results.map((airingToninght, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${airingToninght.id}`}><img src={`https://image.tmdb.org/t/p/w45/${airingToninght.poster_path}`} alt="new" /> {airingToninght.name}</Link>
-                            </div>
+                        {airingTonight.results && airingTonight.results.map((airingToninght, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${airingToninght.id}`}><img src={`https://image.tmdb.org/t/p/w45/${airingToninght.poster_path}`} alt="new" /> {airingToninght.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {airingTonight2.results && airingTonight2.results.map((airingToninght, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${airingToninght.id}`}><img src={`https://image.tmdb.org/t/p/w45/${airingToninght.poster_path}`} alt="new" /> {airingToninght.name}</Link>
-                            </div>
+                        {airingTonight2.results && airingTonight2.results.map((airingToninght, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${airingToninght.id}`}><img src={`https://image.tmdb.org/t/p/w45/${airingToninght.poster_path}`} alt="new" /> {airingToninght.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
-                        {airingTonight3.results && airingTonight3.results.map((airingToninght, i) =>
-                            <div key={i} className="my-1">
-                                <Link to={`/tv_info/${airingToninght.id}`}><img src={`https://image.tmdb.org/t/p/w45/${airingToninght.poster_path}`} alt="new" /> {airingToninght.name}</Link>
-                            </div>
+                        {airingTonight3.results && airingTonight3.results.map((airingToninght, i) => {
+                            count += 1;
+                            return (
+                                <div key={i} className="my-1">
+                                    <Link to={`/tv_info/${airingToninght.id}`}><img src={`https://image.tmdb.org/t/p/w45/${airingToninght.poster_path}`} alt="new" /> {airingToninght.name}</Link>
+                                </div>
+                            )
+                        }
                         )}
                     </div>
                 </div>

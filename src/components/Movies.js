@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import NavBar from './../NavBar'
 import { Link } from 'react-router-dom';
-import Popup from './Popup';
+import PopupSearchMovies from './Movie_Components/PopupSearchMovies';
 import Modal from 'react-modal';
 
 function Movies() {
@@ -92,7 +92,7 @@ function Movies() {
                     </button>
                     <Modal isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
                         <button onClick={closeModal} style={{ float: "right" }}>close</button>
-                        <Popup />
+                        <PopupSearchMovies />
                     </Modal>
                 </div>
             </div>
@@ -139,7 +139,7 @@ function Movies() {
                                     <Link to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link to={`/movies/upcoming_movies/page/${upcoming.page}`}>View Upcoming Releases</Link>
+                            <Link to={`/movies/upcoming_movies/page/${1}`}>View Upcoming Releases</Link>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@ function Movies() {
                                     <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )}
-                            <Link to={`/movies/top_rated_movies/page/${topRatedMovies.page}`}>View All Top Rated Movies</Link>
+                            <Link to={`/movies/top_rated_movies/page/${1}`}>View All Top Rated Movies</Link>
                         </div>
                     </div>
                 </div>
@@ -174,7 +174,7 @@ function Movies() {
                                     <Link to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )}
-                            <Link to={`/movies/popular_movies/page/${popularMovies.page}`}>View All Popular Movies</Link>
+                            <Link to={`/movies/popular_movies/page/${1}`}>View All Popular Movies</Link>
                         </div>
                     </div>
                 </div>

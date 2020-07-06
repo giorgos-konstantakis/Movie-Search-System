@@ -17,7 +17,7 @@ const Nav = () => (
                         <Link to="/tv_shows" className="text-light">TV shows</Link>
                     </li>
                     <li className="nav-item p-1 mr-3" style={navItem}>
-                        <Link to="/actors_and_stuff" className="text-light">Actors and Stuff</Link>
+                        <Link to="/people_and_organizations" className="text-light">People and Organizations</Link>
                     </li>
                     <li className="nav-item p-1" style={navItem}>
                         <Link to="/contact_me" className="text-light">Contact Me</Link>

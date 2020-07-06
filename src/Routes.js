@@ -4,7 +4,7 @@ import App from './App'
 import ContactMe from './components/ContactMe'
 import Movies from './components/Movies'
 import TVshows from './components/TVshows'
-import ActorsAndStuff from './components/ActorsAndStuff'
+import PeopleAndOrganizations from './components/PeopleAndOrganizations'
 import TVshowInfo from './components/TVshow_Components/TVshowInfo'
 import TVshowInfoReverse from './components/TVshow_Components/TVshowInfoReverse'
 import MovieInfo from './components/Movie_Components/MovieInfo'
@@ -30,6 +30,8 @@ import TopRatedTV from './components/TVshow_Components/TVshowCategories/TopRated
 import TopRatedTVReverse from './components/TVshow_Components/TVshowCategories/TopRatedTVReverse'
 import PopularTV from './components/TVshow_Components/TVshowCategories/PopularTV'
 import PopularTVReverse from './components/TVshow_Components/TVshowCategories/PopularTVReverse'
+import PopularPeople from './components/Cast_Crew_Components/PopularPeople'
+import PopularPeopleReverse from './components/Cast_Crew_Components/PopularPeopleReverse'
 
 // Pages' Routes
 const Routes = () => {
@@ -39,7 +41,7 @@ const Routes = () => {
                 <Route path="/" exact component={App} />
                 <Route path="/movies" exact component={Movies} />
                 <Route path="/tv_shows" exact component={TVshows} />
-                <Route path="/actors_and_stuff" exact component={ActorsAndStuff} />
+                <Route path="/people_and_organizations" exact component={PeopleAndOrganizations} />
                 <Route path="/contact_me" exact component={ContactMe} />
                 <Route path="/tv_info/:id" exact component={TVshowInfo} />
                 <Route path="/tv_info_reverse/:id" exact component={TVshowInfoReverse} />
@@ -66,6 +68,8 @@ const Routes = () => {
                 <Route path="/tv_shows/on_the_air_tv_reverse/page/:page" exact component={OnTheAirTVReverse} />
                 <Route path="/tv_shows/airing_tonight_tv/page/:page" exact component={AiringTonightTV} />
                 <Route path="/tv_shows/airing_tonight_tv_reverse/page/:page" exact component={AiringTonightTVReverse} />
+                <Route path="/people_and_organizations/popular_people/page/:page" exact component={PopularPeople} />
+                <Route path="/people_and_organizations/popular_people_reverse/page/:page" exact component={PopularPeopleReverse} />
             </Switch>
         </BrowserRouter>
     )

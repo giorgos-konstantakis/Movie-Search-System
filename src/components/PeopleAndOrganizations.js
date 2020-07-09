@@ -6,6 +6,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import PopupSearchPeople from './Cast_Crew_Components/PopupSearchPeople';
+import PopupSearchCompanies from './Cast_Crew_Components/PopupSearchCompanies';
+import PopupSearchNetwork from './Cast_Crew_Components/PopupSearchNetwork';
+import Modal from 'react-modal';
 
 function PeopleAndOrganizations() {
 
@@ -56,13 +60,26 @@ function PeopleAndOrganizations() {
         slidesToScroll: 1
     };
 
+    const modalStyles = {
+        content: {
+            width: '800px',
+            height: '500px',
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            marginLeft: '-400px',
+            marginTop: '-250px',
+            background: ' #1a1a1a'
+        }
+    };
+
     return (
         <div>
             <NavBar />
             <div className="container my-3">
 
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-8">
                         <div className="card">
                             <div className="card-header text-center">
                                 Popular People
@@ -100,6 +117,41 @@ function PeopleAndOrganizations() {
                             </div>
                             <div className="card-footer text-center">
                                 <Link to={`/people_and_organizations/popular_people/page/${1}`}>See More Popular People</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="row" style={{ height: "120px" }}>
+                            <div className="col text-center">
+                                <button className="btn btn-dark" onClick={openModalPeople}>
+                                    Search People
+                                </button>
+                                <Modal style={modalStyles} isOpen={modalPeople} onRequestClose={closeModalPeople}>
+                                    <button className="btn btn-outline-light" onClick={closeModalPeople} style={{ float: "right" }}>close</button>
+                                    <PopupSearchPeople />
+                                </Modal>
+                            </div>
+                        </div>
+                        <div className="row" style={{ height: "120px" }}>
+                            <div className="col text-center">
+                                <button className="btn btn-dark" onClick={openModalCompanies}>
+                                    Search Companies
+                                </button>
+                                <Modal style={modalStyles} isOpen={modalCompanies} onRequestClose={closeModalCompanies} size='sm'>
+                                    <button className="btn btn-outline-light" onClick={closeModalCompanies} style={{ float: "right" }}>close</button>
+                                    <PopupSearchCompanies />
+                                </Modal>
+                            </div>
+                        </div>
+                        <div className="row" style={{ height: "120px" }}>
+                            <div className="col text-center">
+                                <button className="btn btn-dark" onClick={openModalNetworks}>
+                                    Search Networks
+                                </button>
+                                <Modal style={modalStyles} isOpen={modalNetworks} onRequestClose={closeModalNetworks} size='sm'>
+                                    <button className="btn btn-outline-light" onClick={closeModalNetworks} style={{ float: "right" }}>close</button>
+                                    <PopupSearchNetwork />
+                                </Modal>
                             </div>
                         </div>
                     </div>

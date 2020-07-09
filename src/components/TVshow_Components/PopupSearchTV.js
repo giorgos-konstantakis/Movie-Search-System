@@ -24,8 +24,8 @@ function PopupSearchTV() {
     return (
         <div>
             <Form id="search-form">
-                <label>Search TV Shows</label>
-                <Form.Control type="email" placeholder="Search tv"
+                <label className="bg-light p-3 text-dark border-dark">Search TV Shows</label>
+                <Form.Control className="mt-3 border-dark" type="email" placeholder="Search tv"
                     ref={focusSearch} onChange={(e) => setQuery(e.target.value)} value={query} />
             </Form><br />
             <div>

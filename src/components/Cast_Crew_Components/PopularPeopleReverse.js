@@ -101,7 +101,7 @@ function PopularPeopleReverse(props) {
                                 {popularPeople.results && popularPeople.results.map((popular, i) => {
                                     count += 1;
                                     return (!popular.profile_path ?
-                                        <div key={i} className="card">
+                                        <div key={i} className="card mb-2">
                                             <div className="card-header text-center">
                                                 <Link to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
@@ -109,7 +109,7 @@ function PopularPeopleReverse(props) {
                                                 <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
                                             </div>
                                         </div>
-                                        : <div key={i} className="card">
+                                        : <div key={i} className="card mb-2">
                                             <div className="card-header text-center">
                                                 <Link to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
@@ -125,7 +125,7 @@ function PopularPeopleReverse(props) {
                                 {popularPeople2.results && popularPeople2.results.map((popular, i) => {
                                     count += 1;
                                     return (!popular.profile_path ?
-                                        <div key={i} className="card">
+                                        <div key={i} className="card mb-2">
                                             <div className="card-header text-center">
                                                 <Link to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
@@ -133,7 +133,7 @@ function PopularPeopleReverse(props) {
                                                 <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
                                             </div>
                                         </div>
-                                        : <div key={i} className="card">
+                                        : <div key={i} className="card mb-2">
                                             <div className="card-header text-center">
                                                 <Link to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
@@ -149,7 +149,7 @@ function PopularPeopleReverse(props) {
                                 {popularPeople3.results && popularPeople3.results.map((popular, i) => {
                                     count += 1;
                                     return (!popular.profile_path ?
-                                        <div key={i} className="card">
+                                        <div key={i} className="card mb-2">
                                             <div className="card-header text-center">
                                                 <Link to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
@@ -157,7 +157,7 @@ function PopularPeopleReverse(props) {
                                                 <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
                                             </div>
                                         </div>
-                                        : <div key={i} className="card">
+                                        : <div key={i} className="card mb-2">
                                             <div className="card-header text-center">
                                                 <Link to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>

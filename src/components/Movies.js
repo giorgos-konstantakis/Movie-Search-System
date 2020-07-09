@@ -78,6 +78,19 @@ function Movies() {
         setModalOpen(false);
     }
 
+    const modalStyles = {
+        content: {
+            width: '800px',
+            height: '500px',
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            marginLeft: '-400px',
+            marginTop: '-250px',
+            background: ' #1a1a1a'
+        }
+    };
+
     return (
         <div>
             <NavBar />
@@ -87,11 +100,11 @@ function Movies() {
                     <h3>MOVIES</h3>
                 </div>
                 <div className="col-md-5 container">
-                    <button onClick={openModal}>
+                    <button className="btn btn-dark" onClick={openModal}>
                         Search Movie
                     </button>
-                    <Modal isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
-                        <button onClick={closeModal} style={{ float: "right" }}>close</button>
+                    <Modal style={modalStyles} isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
+                        <button className="btn btn-outline-light" onClick={closeModal} style={{ float: "right" }}>close</button>
                         <PopupSearchMovies />
                     </Modal>
                 </div>

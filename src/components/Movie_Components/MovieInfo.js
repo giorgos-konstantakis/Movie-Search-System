@@ -76,7 +76,6 @@ function MovieInfo(props) {
         slidesToScroll: 1
     };
 
-
     return (
         <div>
             <NavBar />

@@ -4,6 +4,7 @@ import NavBar from './../NavBar'
 import { Link } from 'react-router-dom';
 import PopupSearchMovies from './Movie_Components/PopupSearchMovies';
 import Modal from 'react-modal';
+import './../styles/styles.css';
 
 function Movies() {
 
@@ -92,15 +93,15 @@ function Movies() {
     };
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
 
             <div className="row mt-2 mx-2">
                 <div className="col-md-5 container text-center">
-                    <h3>MOVIES</h3>
+                    <h3 className="page-title bg-dark-1 py-3 text-light">MOVIES</h3>
                 </div>
-                <div className="col-md-5 container">
-                    <button className="btn btn-dark" onClick={openModal}>
+                <div className="col-md-5 container text-center">
+                    <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModal}>
                         Search Movie
                     </button>
                     <Modal style={modalStyles} isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
@@ -113,10 +114,10 @@ function Movies() {
             <div className="row mt-2 mx-2">
                 <div className="col-md-12" >
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Latest
                         </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1 text-white">
                             <div className="text-center">{latestMovie.title}</div>
                             Overview:<div>{latestMovie.overview}</div>
                         </div>
@@ -124,70 +125,70 @@ function Movies() {
                 </div>
             </div>
 
-            <div className="row mt-2 mx-2">
+            <div className="row mt-4 mx-2">
 
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Now Playing
                             </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {nowPlaying.results && nowPlaying.results.slice(0, 5).map((movie, i) =>
                                 <div key={i} className="my-1">
-                                    <Link to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
+                                    <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
+                            <Link className="btn btn-outline-dark text-light link-underline-style" style={{ float: 'right' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Upcoming
                         </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {upcoming && upcoming.slice(0, 5).map((movie, i) =>
                                 <div className="my-1" key={i}>
-                                    <Link to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
+                                    <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link to={`/movies/upcoming_movies/page/${1}`}>View Upcoming Releases</Link>
+                            <Link className="btn btn-outline-dark text-light link-underline-style" to={`/movies/upcoming_movies/page/${1}`}>View Upcoming Releases</Link>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="row mt-2 mb-5 mx-2">
+            <div className="row mt-4 mb-5 mx-2">
 
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Top Rated Movies
                             </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {topRatedMovies.results && topRatedMovies.results.slice(0, 5).map((topRated, i) =>
                                 <div key={i} className="my-1">
-                                    <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    <Link className=" text-light link-underline-style" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )}
-                            <Link to={`/movies/top_rated_movies/page/${1}`}>View All Top Rated Movies</Link>
+                            <Link className="btn btn-outline-dark text-light link-underline-style" to={`/movies/top_rated_movies/page/${1}`}>View All Top Rated Movies</Link>
                         </div>
                     </div>
                 </div>
 
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Popular Movies
                             </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {popularMovies.results && popularMovies.results.slice(0, 5).map((popular, i) =>
-                                <div key={i} className="my-1">
-                                    <Link to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
+                                <div key={i} className="my-1 text-white">
+                                    <Link className=" text-light link-underline-style" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )}
-                            <Link to={`/movies/popular_movies/page/${1}`}>View All Popular Movies</Link>
+                            <Link className="btn btn-outline-dark text-light link-underline-style" to={`/movies/popular_movies/page/${1}`}>View All Popular Movies</Link>
                         </div>
                     </div>
                 </div>

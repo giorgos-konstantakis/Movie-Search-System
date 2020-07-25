@@ -1,0 +1,18 @@
+.navbar-brand-style{
+    font-size: 40px !important;
+    background: #1f1f14;
+    border: 1px solid #f5f5f0;
+    border-radius: 10px;
+    
+}
+
+.nav-item-style{
+    font-size: 20px;
+    background: #1f1f14;
+    border: 1px solid #f5f5f0;
+    border-radius: 10px;
+}
+
+.nav-item-style:hover{
+    opacity: 0.5;
+}

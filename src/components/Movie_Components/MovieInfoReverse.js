@@ -79,14 +79,14 @@ function MovieInfoReverse(props) {
     };
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
                 <div className="card">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {movieDetails.title}
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="row">
                             <div className="col-md-4">
                                 <img src={`https://image.tmdb.org/t/p/w300/${movieDetails.poster_path}`} alt="new" />
@@ -162,11 +162,11 @@ function MovieInfoReverse(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Trailers etc for {movieDetails.title}
                     </div>
-                    <div className="card-body bg-dark">
+                    <div className="card-body bg-dark-1 text-white">
                         <Slider {...settingsSliderYoutube}>
                             {movieTrailers && movieTrailers.map((movieTrailer, i) =>
                                 <div key={i}>
@@ -178,11 +178,11 @@ function MovieInfoReverse(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Recommended movies to watch after {movieDetails.title}
                     </div>
-                    <div className="icard-body bg-dark">
+                    <div className="card-body bg-dark-1 text-white">
                         <Slider {...settingsSlider}>
                             {movieRecommendations && movieRecommendations.map((movieRec, i) => {
                                 return movieRec.poster_path ? <div key={i}>
@@ -194,11 +194,11 @@ function MovieInfoReverse(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {movieDetails.title}'s cast and crew
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="container">
                             {movieCast.map((cast, i) =>
                                 <div className="py-4 row" key={i}>

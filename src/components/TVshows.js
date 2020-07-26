@@ -91,15 +91,15 @@ function TVshows() {
     };
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
 
             <div className="row mt-2 mx-2">
-                <div className="col-md-5 container text-center">
-                    <h3>TV shows</h3>
+                <div className="col-md-10 container text-center">
+                    <h3 className="page-title bg-dark-1 py-3 text-light">TV shows</h3>
                 </div>
-                <div className="col-md-5 container">
-                    <button className="btn btn-dark" onClick={openModal}>
+                <div className="col-md-2 container text-center">
+                    <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModal}>
                         Search TV Show
                     </button>
                     <Modal style={modalStyles} isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
@@ -112,10 +112,10 @@ function TVshows() {
             <div className="row mt-2 mx-2">
                 <div className="col-md-12" >
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Latest
                         </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1 text-white">
                             <div className="text-center">{latestTV.name}</div>
                             Network: {latestTV.networks && latestTV.networks.map((net, i) => <div key={i}>{net.name}</div>)}
                             Overview:<div>{latestTV.overview}</div>
@@ -124,70 +124,78 @@ function TVshows() {
                 </div>
             </div>
 
-            <div className="row mt-2 mx-2">
+            <div className="row mt-4 mx-2">
 
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Airing Tonight
                             </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {airingTonight && airingTonight.slice(0, 5).map((air, i) =>
                                 <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
+                                    <Link className="text-light link-underline-style" to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
                                 </div>
                             )}
-                            <Link to={`/tv_shows/airing_tonight_tv/page/${1}`}>View Airing Tonight</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/airing_tonight_tv/page/${1}`}>View Airing Tonight</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             On the Air ( week )
                         </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {onTheAir && onTheAir.slice(0, 5).map((air, i) =>
                                 <div className="my-1" key={i}>
-                                    <Link to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
+                                    <Link className="text-light link-underline-style" to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
                                 </div>
                             )}
-                            <Link to={`/tv_shows/on_the_air_tv/page/${1}`}>View On The Air</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/on_the_air_tv/page/${1}`}>View On The Air</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="row mt-2 mb-5 mx-2">
+            <div className="row mt-4 mb-5 mx-2">
 
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
-                            Top Rated Movies
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                            Top Rated TV Shows
                             </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {topRatedTV.results && topRatedTV.results.slice(0, 5).map((topRated, i) =>
                                 <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name} </Link>
+                                    <Link className=" text-light link-underline-style" to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name} </Link>
                                 </div>
                             )}
-                            <Link to={`/tv_shows/top_rated_tv/page/${1}`}>View All Top Rated TV Shows</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/top_rated_tv/page/${1}`}>View All Top Rated TV Shows</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="col-md-6">
                     <div className="card">
-                        <div className="card-header text-center">
-                            Popular Movies
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                            Popular TV Shows
                             </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1">
                             {popularTV.results && popularTV.results.slice(0, 5).map((popular, i) =>
                                 <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.name} </Link>
+                                    <Link className=" text-light link-underline-style" to={`/tv_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.name} </Link>
                                 </div>
                             )}
-                            <Link to={`/tv_shows/popular_tv/page/${1}`}>View All Popular TV shows</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/popular_tv/page/${1}`}>View All Popular TV shows</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

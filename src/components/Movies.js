@@ -97,10 +97,10 @@ function Movies() {
             <NavBar />
 
             <div className="row mt-2 mx-2">
-                <div className="col-md-5 container text-center">
+                <div className="col-md-10 container text-center">
                     <h3 className="page-title bg-dark-1 py-3 text-light">MOVIES</h3>
                 </div>
-                <div className="col-md-5 container text-center">
+                <div className="col-md-2 container text-center">
                     <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModal}>
                         Search Movie
                     </button>
@@ -138,7 +138,9 @@ function Movies() {
                                     <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link className="btn btn-outline-dark text-light link-underline-style" style={{ float: 'right' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -153,7 +155,9 @@ function Movies() {
                                     <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                                 </div>
                             )}
-                            <Link className="btn btn-outline-dark text-light link-underline-style" to={`/movies/upcoming_movies/page/${1}`}>View Upcoming Releases</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/upcoming_movies/page/${1}`}>View Upcoming Releases</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -172,7 +176,9 @@ function Movies() {
                                     <Link className=" text-light link-underline-style" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )}
-                            <Link className="btn btn-outline-dark text-light link-underline-style" to={`/movies/top_rated_movies/page/${1}`}>View All Top Rated Movies</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/top_rated_movies/page/${1}`}>View All Top Rated Movies</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +194,9 @@ function Movies() {
                                     <Link className=" text-light link-underline-style" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )}
-                            <Link className="btn btn-outline-dark text-light link-underline-style" to={`/movies/popular_movies/page/${1}`}>View All Popular Movies</Link>
+                            <div style={{ textAlign: 'center' }}>
+                                <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/popular_movies/page/${1}`}>View All Popular Movies</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

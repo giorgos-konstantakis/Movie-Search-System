@@ -30,8 +30,8 @@ function Popup() {
             </Form><br />
             <div>
                 {searchMovies.map((movie, i) =>
-                    <div key={i} action variant="secondary">
-                        <Link to={`/movie_info/${movie.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
+                    <div className="py-1" key={i} action variant="secondary">
+                        <Link className="link-underline-style text-light" to={`/movie_info/${movie.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
                     </div>
                 )}
             </div>

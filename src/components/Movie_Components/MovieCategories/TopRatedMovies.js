@@ -45,9 +45,9 @@ function TopRatedMovies(props) {
     const firstPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
-                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
+                <Link className="card-header-font-sz" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -59,9 +59,9 @@ function TopRatedMovies(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {(topRatedMovies.page - 1) * 20 + 1 + count}</span>
-                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(topRatedMovies.page - 1) * 20 + 1} - {(topRatedMovies.page - 1) * 20 + 1 + count}</span>
+                <Link className="card-header-font-sz" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
                 </Link>
@@ -73,14 +73,14 @@ function TopRatedMovies(props) {
     const renderPages = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
-                <Link className="mr-5" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(topRatedMovies.page - 1) * 20 + 1} - {topRatedMovies3.page * 20}</span>
+                <Link className="card-header-font-sz mr-5" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <Link className="card-header-font-sz" to={`/movies/top_rated_movies_reverse/page/${topRatedMovies.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -89,19 +89,19 @@ function TopRatedMovies(props) {
     }
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
                 <div className="card">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Top Rated Movies
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         {topRatedMovies.results && topRatedMovies.results.map((topRated, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )
                         }
@@ -109,8 +109,8 @@ function TopRatedMovies(props) {
                         {topRatedMovies2.results && topRatedMovies2.results.map((topRated, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )
                         }
@@ -118,8 +118,8 @@ function TopRatedMovies(props) {
                         {topRatedMovies3.results && topRatedMovies3.results.map((topRated, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )
                         }

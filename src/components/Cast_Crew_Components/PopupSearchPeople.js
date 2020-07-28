@@ -30,8 +30,8 @@ function PopupSearchPeople() {
             </Form><br />
             <div>
                 {searchPeople.map((person, i) =>
-                    <div key={i} action variant="secondary">
-                        <Link to={`/people/${person.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${person.profile_path}`} alt="new" /> {person.name} </Link>
+                    <div className="py-1" key={i} action variant="secondary">
+                        <Link className="link-underline-style text-light" to={`/people/${person.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${person.profile_path}`} alt="new" /> {person.name} </Link>
                     </div>
                 )}
             </div>

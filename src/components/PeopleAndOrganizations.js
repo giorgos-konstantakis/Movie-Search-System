@@ -88,12 +88,14 @@ function PeopleAndOrganizations() {
                                 <Slider {...settingsSlider}>
                                     {popularPeople && popularPeople.map((person, i) =>
                                         <div key={i}>
-                                            <div className="card-title text-center text-light">{person.name}</div>
+                                            <div className="card-title text-center text-light">
+                                                <Link className=" text-light link-underline-style name-title-font-sz" to={`/people/${person.id}`}>{person.name}</Link>
+                                            </div>
                                             <div className="row">
-                                                <div className="col-md-6">
-                                                    <img src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`} alt="new" />
+                                                <div className="col-md-4">
+                                                    <Link className="text-light link-underline-style" to={`/people/${person.id}`}><img src={`https://image.tmdb.org/t/p/w185/${person.profile_path}`} alt="new" /></Link>
                                                 </div>
-                                                <div className="col-md-6">
+                                                <div className="col-md-8">
                                                     <div className="row mb-1 text-light">
                                                         Department: {person.known_for_department}
                                                     </div>

@@ -30,7 +30,7 @@ function PopupSearchNetwork() {
             </Form><br />
             <div>
                 {searchNetworks.map((network, i) =>
-                    <div key={i} action variant="secondary">
+                    <div className="py-1" key={i} action variant="secondary">
 
                     </div>
                 )}

@@ -1,7 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, withRouter } from 'react-router-dom'
 import App from './App'
-import ContactMe from './components/ContactMe'
 import Movies from './components/Movies'
 import TVshows from './components/TVshows'
 import PeopleAndOrganizations from './components/PeopleAndOrganizations'
@@ -42,7 +41,6 @@ const Routes = () => {
                 <Route path="/movies" exact component={Movies} />
                 <Route path="/tv_shows" exact component={TVshows} />
                 <Route path="/people_and_organizations" exact component={PeopleAndOrganizations} />
-                <Route path="/contact_me" exact component={ContactMe} />
                 <Route path="/tv_info/:id" exact component={TVshowInfo} />
                 <Route path="/tv_info_reverse/:id" exact component={TVshowInfoReverse} />
                 <Route path="/movie_info/:id" exact component={MovieInfo} />

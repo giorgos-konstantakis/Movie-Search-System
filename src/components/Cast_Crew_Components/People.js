@@ -64,15 +64,15 @@ function People(props) {
     };
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
 
                 <div className="card">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {peopleDetails.name}
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="row">
                             <div className="col-md-4">
                                 <img src={`https://image.tmdb.org/t/p/w300/${peopleDetails.profile_path}`} alt="new" />
@@ -103,10 +103,10 @@ function People(props) {
                 </div>
 
                 <div className="card mt-2">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {peopleDetails.name} Photos
                     </div>
-                    <div className="card-body bg-dark">
+                    <div className="card-body bg-dark-1 text-white">
                         <Slider {...settingsSlider}>
                             {peopleImages && peopleImages.map((image, i) => {
                                 return image.file_path ? <div key={i}>
@@ -119,19 +119,19 @@ function People(props) {
                 </div>
 
                 <div className="card mt-2">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {peopleDetails.name} Filmography and Credits
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="container">
                             {peopleCombinedCredits.cast && peopleCombinedCredits.cast.map((cast, i) =>
                                 <div className="py-4 row" key={i}>
                                     <Link to={`/movie_info/${cast.id}`}>
                                         <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${cast.poster_path}`} alt="new" /> </div>
                                     </Link>
-                                    <div className="py-3 col-md-3 text-center"> {cast.title ? cast.title : cast.name} </div>
-                                    <div className="py-3 col-md-3 text-center"> {!cast.character ? 'Himself/Herself' : cast.character} </div>
-                                    <div className="py-3 col-md-3">{cast.media_type} </div>
+                                    <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${cast.id}`}>{cast.title ? cast.title : cast.name}</Link> </div>
+                                    <div className="py-3 col-md-3 text-center name-title-font-sz"> {!cast.character ? 'Himself/Herself' : cast.character} </div>
+                                    <div className="py-3 col-md-3 name-title-font-sz">{cast.media_type} </div>
                                 </div>
                             )}
                             {peopleCombinedCredits.crew && peopleCombinedCredits.crew.map((crew, i) =>
@@ -139,9 +139,9 @@ function People(props) {
                                     <Link to={`/TV_info/${crew.id}`}>
                                         <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${crew.poster_path}`} alt="new" /> </div>
                                     </Link>
-                                    <div className="py-3 col-md-3 text-center"> {crew.title} </div>
-                                    <div className="py-3 col-md-3 text-center"> {crew.job} </div>
-                                    <div className="py-3 col-md-3">{crew.media_type} </div>
+                                    <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${crew.id}`}>{crew.title} </Link></div>
+                                    <div className="py-3 col-md-3 text-center name-title-font-sz"> {crew.job} </div>
+                                    <div className="py-3 col-md-3 name-title-font-sz">{crew.media_type} </div>
                                 </div>
                             )}
                         </div>

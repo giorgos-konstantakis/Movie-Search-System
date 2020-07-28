@@ -44,9 +44,9 @@ function PopularPeopleReverse(props) {
     const firstPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularPeople.page - 1) * 20 + 1} - {popularPeople3.page * 20}</span>
-                <Link to={`/people_and_organizations/popular_people/page/${popularPeople.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(popularPeople.page - 1) * 20 + 1} - {popularPeople3.page * 20}</span>
+                <Link className="card-header-font-sz" to={`/people_and_organizations/popular_people/page/${popularPeople.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -58,9 +58,9 @@ function PopularPeopleReverse(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularPeople.page - 1) * 20 + 1} - {(popularPeople3.page - 1) * 20 + 1 + count}</span>
-                <Link to={`/people_and_organizations/popular_people/page/${popularPeople.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(popularPeople.page - 1) * 20 + 1} - {(popularPeople3.page - 1) * 20 + 1 + count}</span>
+                <Link className="card-header-font-sz" to={`/people_and_organizations/popular_people/page/${popularPeople.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
                 </Link>
@@ -72,14 +72,14 @@ function PopularPeopleReverse(props) {
     const renderPages = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularPeople.page - 1) * 20 + 1} - {popularPeople3.page * 20}</span>
-                <Link className="mr-5" to={`/people_and_organizations/popular_people/page/${popularPeople.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(popularPeople.page - 1) * 20 + 1} - {popularPeople3.page * 20}</span>
+                <Link className="mr-5 card-header-font-sz" to={`/people_and_organizations/popular_people/page/${popularPeople.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/people_and_organizations/popular_people/page/${popularPeople.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <Link className="card-header-font-sz" to={`/people_and_organizations/popular_people/page/${popularPeople.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -87,33 +87,34 @@ function PopularPeopleReverse(props) {
         )
     }
 
+
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
                 <div className="card">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Popular People
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1">
                         <div className="row">
                             <div className="col-md-4">
                                 {popularPeople.results && popularPeople.results.map((popular, i) => {
                                     count += 1;
                                     return (!popular.profile_path ?
                                         <div key={i} className="card mb-2">
-                                            <div className="card-header text-center">
-                                                <Link to={`/people/${popular.id}`}>{popular.name}</Link>
+                                            <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                                                <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body bg-dark-1">
                                                 <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
                                             </div>
                                         </div>
                                         : <div key={i} className="card mb-2">
-                                            <div className="card-header text-center">
-                                                <Link to={`/people/${popular.id}`}>{popular.name}</Link>
+                                            <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                                                <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body bg-dark-1">
                                                 <Link to={`/people/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w300/${popular.profile_path}`} /></Link>
                                             </div>
                                         </div>
@@ -126,18 +127,18 @@ function PopularPeopleReverse(props) {
                                     count += 1;
                                     return (!popular.profile_path ?
                                         <div key={i} className="card mb-2">
-                                            <div className="card-header text-center">
-                                                <Link to={`/people/${popular.id}`}>{popular.name}</Link>
+                                            <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                                                <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body bg-dark-1">
                                                 <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
                                             </div>
                                         </div>
                                         : <div key={i} className="card mb-2">
-                                            <div className="card-header text-center">
-                                                <Link to={`/people/${popular.id}`}>{popular.name}</Link>
+                                            <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                                                <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body bg-dark-1">
                                                 <Link to={`/people/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w300/${popular.profile_path}`} /></Link>
                                             </div>
                                         </div>
@@ -150,18 +151,18 @@ function PopularPeopleReverse(props) {
                                     count += 1;
                                     return (!popular.profile_path ?
                                         <div key={i} className="card mb-2">
-                                            <div className="card-header text-center">
-                                                <Link to={`/people/${popular.id}`}>{popular.name}</Link>
+                                            <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                                                <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body bg-dark-1">
                                                 <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
                                             </div>
                                         </div>
                                         : <div key={i} className="card mb-2">
-                                            <div className="card-header text-center">
-                                                <Link to={`/people/${popular.id}`}>{popular.name}</Link>
+                                            <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                                                <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
-                                            <div className="card-body">
+                                            <div className="card-body bg-dark-1">
                                                 <Link to={`/people/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w300/${popular.profile_path}`} /></Link>
                                             </div>
                                         </div>

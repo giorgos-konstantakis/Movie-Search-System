@@ -78,15 +78,15 @@ function TVshowInfo(props) {
 
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
                 <div className="card">
-                    <div className="card-header text-center">
-                        <div> {showDetails.original_name}</div>
+                    <div className="card-header text-white text-center bg-dark">
+                        <div className="card-header-font-sz"> {showDetails.original_name}</div>
                         <div>{showDetails.number_of_seasons} seasons,{showDetails.number_of_episodes} episodes</div>
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="row">
                             <div className="col-md-4">
                                 <img src={`https://image.tmdb.org/t/p/w300/${showDetails.poster_path}`} alt="new" />
@@ -164,17 +164,17 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Seasons
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="row">
                             {showDetails.seasons && showDetails.seasons.map((season, i) =>
                                 <div key={i} className="col-md-1 mx-2 text-center">
-                                    Season {season.season_number}
+                                    <div className="text-center ml-2">Season {season.season_number}</div>
                                     <Link to={`/episodes/${showDetails.name}/${season.season_number}/${props.match.params.id}`}>
-                                        <img src={`https://image.tmdb.org/t/p/w92/${season.poster_path}`} alt="new" />
+                                        <img className="photo-opac" src={`https://image.tmdb.org/t/p/w92/${season.poster_path}`} alt="new" />
                                     </Link>
                                 </div>
                             )}
@@ -182,11 +182,11 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Trailers etc for {showDetails.original_name}
                     </div>
-                    <div className="card-body bg-dark">
+                    <div className="card-body bg-dark-1 text-white">
                         <Slider {...settingsSliderYoutube}>
                             {showTrailers && showTrailers.map((showTrailer, i) =>
                                 <div key={i}>
@@ -198,15 +198,15 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Recommended tv shows to watch after {showDetails.original_name}
                     </div>
-                    <div className="card-body bg-dark">
+                    <div className="card-body bg-dark-1 text-white">
                         <Slider {...settingsSlider}>
                             {showRecommendations && showRecommendations.map((showRec, i) => {
                                 return showRec.poster_path ? <div key={i}>
-                                    <Link to={`/tv_info_reverse/${showRec.id}`} > <img src={`https://image.tmdb.org/t/p/w154/${showRec.poster_path}`} alt="new" /> </Link>
+                                    <Link to={`/tv_info_reverse/${showRec.id}`} > <img className="photo-opac" src={`https://image.tmdb.org/t/p/w154/${showRec.poster_path}`} alt="new" /> </Link>
                                 </div> : null
                             }
                             )}
@@ -214,27 +214,27 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-2">
-                    <div className="card-header text-center">
+                <div className="card mt-3">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {showDetails.original_name}'s cast and crew
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         <div className="container">
                             {showCast.map((cast, i) =>
                                 <div className="py-4 row" key={i}>
                                     <Link to={`/people/${cast.id}`}>
-                                        <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${cast.profile_path}`} alt="new" /> </div>
+                                        <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${cast.profile_path}`} alt="new" /> </div>
                                     </Link>
-                                    <div className="py-3 col-md-3 text-center"> {cast.name} </div>
+                                    <div className="py-3 col-md-3 text-center"><Link className="text-light link-underline-style" to={`/people/${cast.id}`}> {cast.name}</Link> </div>
                                     <div className="py-3 col-md-3">{cast.character} </div>
                                 </div>
                             )}
                             {showCrew.map((crew, i) =>
                                 <div className="py-4 row" key={i}>
                                     <Link to={`/people/${crew.id}`}>
-                                        <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${crew.profile_path}`} alt="new" /> </div>
+                                        <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${crew.profile_path}`} alt="new" /> </div>
                                     </Link>
-                                    <div className="py-3 col-md-3 text-center"> {crew.name} </div>
+                                    <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${crew.id}`}>{crew.name}</Link> </div>
                                     <div className="py-3 col-md-3">{crew.job} </div>
                                 </div>
                             )}

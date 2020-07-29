@@ -43,7 +43,7 @@ function PopularMoviesReverse(props) {
         return (
             <div className="text-center col-md-12">
                 <span className="mr-5 card-header-font-sz text-white">Results: {(popularMovies.page - 1) * 20 + 1} - {popularMovies3.page * 20}</span>
-                <Link className="card-header-font-sz" to={`/movies/popular_movies_reverse/page/${popularMovies.page + 3}`}>
+                <Link className="card-header-font-sz" to={`/movies/popular_movies/page/${popularMovies.page + 3}`}>
                     <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -57,7 +57,7 @@ function PopularMoviesReverse(props) {
         return (
             <div className="text-center col-md-12">
                 <span className="mr-5 card-header-font-sz text-white">Results: {(popularMovies.page - 1) * 20 + 1} - {(popularMovies.page - 1) * 20 + 1 + count}</span>
-                <Link className="card-header-font-sz" to={`/movies/popular_movies_reverse/page/${popularMovies.page - 3}`}>
+                <Link className="card-header-font-sz" to={`/movies/popular_movies/page/${popularMovies.page - 3}`}>
                     <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
@@ -71,12 +71,12 @@ function PopularMoviesReverse(props) {
         return (
             <div className="text-center col-md-12">
                 <span className="mr-5 card-header-font-sz text-white">Results: {(popularMovies.page - 1) * 20 + 1} - {popularMovies3.page * 20}</span>
-                <Link className="card-header-font-sz" to={`/movies/popular_movies_reverse/page/${popularMovies.page - 3}`}>
+                <Link className="mr-5 card-header-font-sz" to={`/movies/popular_movies/page/${popularMovies.page - 3}`}>
                     <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/movies/popular_movies_reverse/page/${popularMovies.page + 3}`}>
+                <Link className="card-header-font-sz" to={`/movies/popular_movies/page/${popularMovies.page + 3}`}>
                     <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
@@ -98,7 +98,7 @@ function PopularMoviesReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )
                         }
@@ -107,7 +107,7 @@ function PopularMoviesReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )
                         }
@@ -116,7 +116,7 @@ function PopularMoviesReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
                                 </div>
                             )
                         }
@@ -124,9 +124,9 @@ function PopularMoviesReverse(props) {
                     </div>
                 </div>
                 <div className="row mb-5 mt-3">
-                    {popularMovies.page == 1 && firstPage()}
-                    {popularMovies.page == 85 && lastPage()}
-                    {popularMovies.page != 1 && popularMovies.page != 85 && renderPages()}
+                    {popularMovies.page === 1 && firstPage()}
+                    {popularMovies.page === 85 && lastPage()}
+                    {popularMovies.page !== 1 && popularMovies.page !== 85 && renderPages()}
                 </div>
             </div>
         </div>

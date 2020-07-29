@@ -44,9 +44,9 @@ function OnTheAirTV(props) {
     const firstPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(onTheAir.page - 1) * 20 + 1} - {onTheAir3.page * 20}</span>
-                <Link to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(onTheAir.page - 1) * 20 + 1} - {onTheAir3.page * 20}</span>
+                <Link className="card-header-font-sz" to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -58,9 +58,9 @@ function OnTheAirTV(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(onTheAir.page - 1) * 20 + 1} - {(onTheAir.page - 1) * 20 + 1 + count}</span>
-                <Link to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(onTheAir.page - 1) * 20 + 1} - {(onTheAir.page - 1) * 20 + 1 + count}</span>
+                <Link className="card-header-font-sz" to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
                 </Link>
@@ -72,14 +72,14 @@ function OnTheAirTV(props) {
     const renderPages = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(onTheAir.page - 1) * 20 + 1} - {onTheAir3.page * 20}</span>
-                <Link className="mr-5" to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(onTheAir.page - 1) * 20 + 1} - {onTheAir3.page * 20}</span>
+                <Link className="mr-5 card-header-font-sz" to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <Link className="card-header-font-sz" to={`/tv_shows/on_the_air_tv_reverse/page/${onTheAir.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -88,19 +88,19 @@ function OnTheAirTV(props) {
     }
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
                 <div className="card">
-                    <div className="card-header text-center">
-                        TV : On The Air
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
+                        On The Air ( week )
                     </div>
-                    <div className="card-body">
+                    <div className="card-body bg-dark-1 text-white">
                         {onTheAir.results && onTheAir.results.map((onTheAir, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
                                 </div>
                             )
                         }
@@ -108,8 +108,8 @@ function OnTheAirTV(props) {
                         {onTheAir2.results && onTheAir2.results.map((onTheAir, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
                                 </div>
                             )
                         }
@@ -117,8 +117,8 @@ function OnTheAirTV(props) {
                         {onTheAir3.results && onTheAir3.results.map((onTheAir, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
                                 </div>
                             )
                         }

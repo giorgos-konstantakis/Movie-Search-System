@@ -26,6 +26,11 @@
 .link-underline-style{
     text-decoration:none !important;
 }
+
+.photo-opac:hover{
+    opacity:0.5;
+}
+
 .name-title-font-sz{
     font-size:20px;
 }

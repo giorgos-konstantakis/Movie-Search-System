@@ -44,9 +44,9 @@ function PopularTVReverse(props) {
     const firstPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularTV.page - 1) * 20 + 1} - {popularTV3.page * 20}</span>
-                <Link to={`/tv_shows/popular_tv/page/${popularTV.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(popularTV.page - 1) * 20 + 1} - {popularTV3.page * 20}</span>
+                <Link className="card-header-font-sz" to={`/tv_shows/popular_tv/page/${popularTV.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -58,9 +58,9 @@ function PopularTVReverse(props) {
     const lastPage = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularTV.page - 1) * 20 + 1} - {(popularTV.page - 1) * 20 + 1 + count}</span>
-                <Link to={`/tv_shows/popular_tv/page/${popularTV.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(popularTV.page - 1) * 20 + 1} - {(popularTV.page - 1) * 20 + 1 + count}</span>
+                <Link className="card-header-font-sz" to={`/tv_shows/popular_tv/page/${popularTV.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
                 </Link>
@@ -72,14 +72,14 @@ function PopularTVReverse(props) {
     const renderPages = () => {
         return (
             <div className="text-center col-md-12">
-                <span className="mr-5">Results: {(popularTV.page - 1) * 20 + 1} - {popularTV3.page * 20}</span>
-                <Link className="mr-5" to={`/tv_shows/popular_tv/page/${popularTV.page - 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <span className="mr-5 card-header-font-sz text-white">Results: {(popularTV.page - 1) * 20 + 1} - {popularTV3.page * 20}</span>
+                <Link className="mr-5 card-header-font-sz" to={`/tv_shows/popular_tv/page/${popularTV.page - 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
-                <Link to={`/tv_shows/popular_tv/page/${popularTV.page + 3}`}>
-                    <button type="button" className="btn btn-dark">
+                <Link className="card-header-font-sz" to={`/tv_shows/popular_tv/page/${popularTV.page + 3}`}>
+                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -88,37 +88,37 @@ function PopularTVReverse(props) {
     }
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
                 <div className="card">
-                    <div className="card-header text-center">
+                    <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Popular TV Shows
                     </div>
-                    <div className="card-body">
-                        {popularTV.results && popularTV.results.map((popularTV, i) => {
+                    <div className="card-body bg-dark-1 text-white">
+                        {popularTV.results && popularTV.results.map((popularTv, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
                                 </div>
                             )
                         }
                         )}
-                        {popularTV2.results && popularTV2.results.map((popularTV, i) => {
+                        {popularTV2.results && popularTV2.results.map((popularTv, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
                                 </div>
                             )
                         }
                         )}
-                        {popularTV3.results && popularTV3.results.map((popularTV, i) => {
+                        {popularTV3.results && popularTV3.results.map((popularTv, i) => {
                             count += 1;
                             return (
-                                <div key={i} className="my-1">
-                                    <Link to={`/tv_info/${popularTV.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTV.poster_path}`} alt="new" /> {popularTV.name}</Link>
+                                <div key={i} className="my-1 py-2">
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
                                 </div>
                             )
                         }

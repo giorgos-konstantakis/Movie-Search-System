@@ -30,8 +30,8 @@ function PopupSearchTV() {
             </Form><br />
             <div>
                 {searchTV.map((tv, i) =>
-                    <div key={i} action variant="secondary">
-                        <Link to={`/tv_info/${tv.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${tv.poster_path}`} alt="new" /> {tv.name} </Link>
+                    <div className="py-1" key={i} action variant="secondary">
+                        <Link className="link-underline-style text-light" to={`/tv_info/${tv.id}`}> <img src={`https://image.tmdb.org/t/p/w45/${tv.poster_path}`} alt="new" /> {tv.name} </Link>
                     </div>
                 )}
             </div>

@@ -96,7 +96,7 @@ function TVshows() {
 
             <div className="row mt-2 mx-2">
                 <div className="col-md-10 container text-center">
-                    <h3 className="page-title bg-dark-1 py-3 text-light">TV shows</h3>
+                    <h3 className="page-title bg-dark-1 py-3 text-light">TV SHOWS</h3>
                 </div>
                 <div className="col-md-2 container text-center">
                     <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModal}>

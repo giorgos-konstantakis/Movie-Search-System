@@ -203,7 +203,7 @@ function MovieInfo(props) {
                                     <Link to={`/people/${cast.id}`}>
                                         <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${cast.profile_path}`} alt="new" /> </div>
                                     </Link>
-                                    <div className="py-3 col-md-3 text-center"> {cast.name} </div>
+                                    <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${cast.id}`}>{cast.name}</Link> </div>
                                     <div className="py-3 col-md-3">{cast.character} </div>
                                 </div>
                             )}
@@ -212,7 +212,7 @@ function MovieInfo(props) {
                                     <Link to={`/people/${crew.id}`}>
                                         <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${crew.profile_path}`} alt="new" /> </div>
                                     </Link>
-                                    <div className="py-3 col-md-3 text-center"> {crew.name} </div>
+                                    <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${crew.id}`}>{crew.name}</Link> </div>
                                     <div className="py-3 col-md-3">{crew.job} </div>
                                 </div>
                             )}

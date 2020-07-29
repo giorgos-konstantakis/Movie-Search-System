@@ -101,7 +101,7 @@ function TopRatedMoviesReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )
                         }
@@ -110,7 +110,7 @@ function TopRatedMoviesReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )
                         }
@@ -119,7 +119,7 @@ function TopRatedMoviesReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-white link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
                                 </div>
                             )
                         }

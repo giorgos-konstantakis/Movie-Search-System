@@ -64,19 +64,19 @@ function Episode(props) {
     };
 
     return (
-        <div>
+        <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="ml-5 mt-3" style={{ float: "left" }}>
-                <Link to={`/episodes/${props.match.params.tv_show_name}/${props.match.params.season_number}/${props.match.params.id}`}>Previous Page...</Link>
+                <Link className="btn btn-outline-dark text-light link-underline-style" to={`/episodes/${props.match.params.tv_show_name}/${props.match.params.season_number}/${props.match.params.id}`}>Previous Page...</Link>
             </div>
             <div className="container my-3">
-                <h2 className="ml-4 text-center">{props.match.params.tv_show_name}, Season {props.match.params.season_number},Episode {props.match.params.episode_number}</h2>
+                <h2 className="ml-4 text-center text-light">{props.match.params.tv_show_name}, Season {props.match.params.season_number},Episode {props.match.params.episode_number}</h2>
                 <div className="container mt-3">
-                    <div className="card">
-                        <div className="card-header text-center">
+                    <div className="card mt-3">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             {episodeDetails.name}
                         </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1 text-white">
                             <div className="row">
                                 <div className="col-md-4">
                                     <img src={`https://image.tmdb.org/t/p/w300/${episodeDetails.still_path}`} alt="new" />
@@ -100,11 +100,11 @@ function Episode(props) {
                         </div>
                     </div>
 
-                    <div className="card mt-2">
-                        <div className="card-header">
+                    <div className="card mt-3">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Episode's Images
                         </div>
-                        <div className="card-body bg-dark">
+                        <div className="card-body bg-dark-1 text-white">
                             <Slider {...settingsSlider}>
                                 {episodeImages && episodeImages.map((image, i) => {
                                     return image.file_path ? <div key={i}>
@@ -116,11 +116,11 @@ function Episode(props) {
                         </div>
                     </div>
 
-                    <div className="card mt-2">
-                        <div className="card-header text-center">
+                    <div className="card mt-3">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Episode's Videos etc
                         </div>
-                        <div className="card-body bg-dark">
+                        <div className="card-body bg-dark-1 text-white">
                             <Slider {...settingsSliderYoutube}>
                                 {episodeVideos && episodeVideos.map((video, i) =>
                                     <div key={i}>
@@ -132,27 +132,27 @@ function Episode(props) {
                         </div>
                     </div>
 
-                    <div className="card mt-2">
-                        <div className="card-header text-center">
+                    <div className="card mt-3">
+                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Episode's cast and crew
                     </div>
-                        <div className="card-body">
+                        <div className="card-body bg-dark-1 text-white">
                             <div className="container">
                                 {episodeDetails.crew && episodeDetails.crew.map((crew, i) =>
                                     <div className="py-4 row" key={i}>
-                                        <Link to={`/people/${crew.id}`}>
+                                        <Link className="photo-opac" to={`/people/${crew.id}`}>
                                             <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${crew.profile_path}`} alt="new" /> </div>
                                         </Link>
-                                        <div className="py-3 col-md-3 text-center"> {crew.name} </div>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${crew.id}`}>{crew.name}</Link> </div>
                                         <div className="py-3 col-md-3">{crew.job} </div>
                                     </div>
                                 )}
                                 {episodeDetails.guest_stars && episodeDetails.guest_stars.map((cast, i) =>
                                     <div className="py-4 row" key={i}>
-                                        <Link to={`/people/${cast.id}`}>
+                                        <Link className="photo-opac" to={`/people/${cast.id}`}>
                                             <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${cast.profile_path}`} alt="new" /> </div>
                                         </Link>
-                                        <div className="py-3 col-md-3 text-center"> {cast.name} </div>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${cast.id}`}>{cast.name}</Link> </div>
                                         <div className="py-3 col-md-3">{cast.character} </div>
                                     </div>
                                 )}

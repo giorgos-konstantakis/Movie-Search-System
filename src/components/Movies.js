@@ -133,10 +133,16 @@ function Movies() {
                             Now Playing
                             </div>
                         <div className="card-body bg-dark-1">
-                            {nowPlaying.results && nowPlaying.results.slice(0, 5).map((movie, i) =>
-                                <div key={i} className="my-1">
-                                    <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
-                                </div>
+                            {nowPlaying.results && nowPlaying.results.slice(0, 5).map((movie, i) => {
+                                return (movie.poster_path ?
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
+                                    </div> :
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img className="photo-opac" style={{ width: "45px", height: "60px" }} src={require(`../images/no-photo-object.png`)} alt="new" /> {movie.title} </Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
@@ -150,10 +156,16 @@ function Movies() {
                             Upcoming
                         </div>
                         <div className="card-body bg-dark-1">
-                            {upcoming && upcoming.slice(0, 5).map((movie, i) =>
-                                <div className="my-1" key={i}>
-                                    <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
-                                </div>
+                            {upcoming && upcoming.slice(0, 5).map((movie, i) => {
+                                return (movie.poster_path ?
+                                    <div className="my-1" key={i}>
+                                        <Link className=" text-light link-underline-style" to={`/movie_info/${movie.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${movie.poster_path}`} alt="new" /> {movie.title} </Link>
+                                    </div> :
+                                    <div style={{ textAlign: 'center' }}>
+                                        <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/upcoming_movies/page/${1}`}>View Upcoming Releases</Link>
@@ -171,10 +183,16 @@ function Movies() {
                             Top Rated Movies
                             </div>
                         <div className="card-body bg-dark-1">
-                            {topRatedMovies.results && topRatedMovies.results.slice(0, 5).map((topRated, i) =>
-                                <div key={i} className="my-1">
-                                    <Link className=" text-light link-underline-style" to={`/movie_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
-                                </div>
+                            {topRatedMovies.results && topRatedMovies.results.slice(0, 5).map((topRated, i) => {
+                                return (topRated.poster_path ?
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/movie_info/${topRated.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.title}</Link>
+                                    </div> :
+                                    <div style={{ textAlign: 'center' }}>
+                                        <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/top_rated_movies/page/${1}`}>View All Top Rated Movies</Link>
@@ -189,10 +207,16 @@ function Movies() {
                             Popular Movies
                             </div>
                         <div className="card-body bg-dark-1">
-                            {popularMovies.results && popularMovies.results.slice(0, 5).map((popular, i) =>
-                                <div key={i} className="my-1 text-white">
-                                    <Link className=" text-light link-underline-style" to={`/movie_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
-                                </div>
+                            {popularMovies.results && popularMovies.results.slice(0, 5).map((popular, i) => {
+                                return (popular.poster_path ?
+                                    <div key={i} className="my-1 text-white">
+                                        <Link className=" text-light link-underline-style" to={`/movie_info/${popular.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.title}</Link>
+                                    </div> :
+                                    <div style={{ textAlign: 'center' }}>
+                                        <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/now_playing_movies/page/${1}`}>View Now Playing</Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/movies/popular_movies/page/${1}`}>View All Popular Movies</Link>

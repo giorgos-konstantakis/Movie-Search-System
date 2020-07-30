@@ -124,25 +124,47 @@ function People(props) {
                     </div>
                     <div className="card-body bg-dark-1 text-white">
                         <div className="container">
-                            {peopleCombinedCredits.cast && peopleCombinedCredits.cast.map((cast, i) =>
-                                <div className="py-4 row" key={i}>
-                                    <Link to={`/movie_info/${cast.id}`}>
-                                        <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${cast.poster_path}`} alt="new" /> </div>
-                                    </Link>
-                                    <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${cast.id}`}>{cast.title ? cast.title : cast.name}</Link> </div>
-                                    <div className="py-3 col-md-3 text-center name-title-font-sz"> {!cast.character ? 'Himself/Herself' : cast.character} </div>
-                                    <div className="py-3 col-md-3 name-title-font-sz">{cast.media_type} </div>
-                                </div>
+                            {peopleCombinedCredits.cast && peopleCombinedCredits.cast.map((cast, i) => {
+                                return (cast.poster_path ?
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/movie_info/${cast.id}`}>
+                                            <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${cast.poster_path}`} alt="new" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${cast.id}`}>{cast.title ? cast.title : cast.name}</Link> </div>
+                                        <div className="py-3 col-md-3 text-center name-title-font-sz"> {!cast.character ? 'Himself/Herself' : cast.character} </div>
+                                        <div className="py-3 col-md-3 name-title-font-sz">{cast.media_type} </div>
+                                    </div> :
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/movie_info/${cast.id}`}>
+                                            <div className="col-md-1"> <img style={{ width: "45px", height: "60px" }} src={require(`../../images/no-photo-object.png`)} alt="" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${cast.id}`}>{cast.title ? cast.title : cast.name}</Link> </div>
+                                        <div className="py-3 col-md-3 text-center name-title-font-sz"> {!cast.character ? 'Himself/Herself' : cast.character} </div>
+                                        <div className="py-3 col-md-3 name-title-font-sz">{cast.media_type} </div>
+                                    </div>
+                                )
+                            }
                             )}
-                            {peopleCombinedCredits.crew && peopleCombinedCredits.crew.map((crew, i) =>
-                                <div className="py-4 row" key={i}>
-                                    <Link to={`/TV_info/${crew.id}`}>
-                                        <div className="col-md-1"> <img src={`https://image.tmdb.org/t/p/w45/${crew.poster_path}`} alt="new" /> </div>
-                                    </Link>
-                                    <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${crew.id}`}>{crew.title} </Link></div>
-                                    <div className="py-3 col-md-3 text-center name-title-font-sz"> {crew.job} </div>
-                                    <div className="py-3 col-md-3 name-title-font-sz">{crew.media_type} </div>
-                                </div>
+                            {peopleCombinedCredits.crew && peopleCombinedCredits.crew.map((crew, i) => {
+                                return (crew.poster_path ?
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/TV_info/${crew.id}`}>
+                                            <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${crew.poster_path}`} alt="new" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${crew.id}`}>{crew.title} </Link></div>
+                                        <div className="py-3 col-md-3 text-center name-title-font-sz"> {crew.job} </div>
+                                        <div className="py-3 col-md-3 name-title-font-sz">{crew.media_type} </div>
+                                    </div> :
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/TV_info/${crew.id}`}>
+                                            <div className="col-md-1"> <img style={{ width: "45px", height: "60px" }} src={require(`../../images/no-photo-object.png`)} alt="" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="name-title-font-sz text-light link-underline-style" to={`/movie_info/${crew.id}`}>{crew.title} </Link></div>
+                                        <div className="py-3 col-md-3 text-center name-title-font-sz"> {crew.job} </div>
+                                        <div className="py-3 col-md-3 name-title-font-sz">{crew.media_type} </div>
+                                    </div>
+                                )
+                            }
                             )}
                         </div>
                     </div>

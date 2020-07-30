@@ -100,7 +100,7 @@ function OnTheAirTV(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
                                 </div>
                             )
                         }
@@ -109,7 +109,7 @@ function OnTheAirTV(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
                                 </div>
                             )
                         }
@@ -118,7 +118,7 @@ function OnTheAirTV(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${onTheAir.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${onTheAir.poster_path}`} alt="new" /> {onTheAir.name}</Link>
                                 </div>
                             )
                         }

@@ -99,7 +99,7 @@ function TVshows() {
                     <h3 className="page-title bg-dark-1 py-3 text-light">TV SHOWS</h3>
                 </div>
                 <div className="col-md-2 container text-center">
-                    <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModal}>
+                    <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '19px' }} onClick={openModal}>
                         Search TV Show
                     </button>
                     <Modal style={modalStyles} isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
@@ -132,10 +132,16 @@ function TVshows() {
                             Airing Tonight
                             </div>
                         <div className="card-body bg-dark-1">
-                            {airingTonight && airingTonight.slice(0, 5).map((air, i) =>
-                                <div key={i} className="my-1">
-                                    <Link className="text-light link-underline-style" to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
-                                </div>
+                            {airingTonight && airingTonight.slice(0, 5).map((air, i) => {
+                                return (air.poster_path ?
+                                    <div key={i} className="my-1">
+                                        <Link className="text-light link-underline-style" to={`/tv_info/${air.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
+                                    </div> :
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/tv_info/${air.id}`}><img className="photo-opac" style={{ width: "45px", height: "60px" }} src={require(`../images/no-photo-object.png`)} alt="new" /> {air.name} </Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/airing_tonight_tv/page/${1}`}>View Airing Tonight</Link>
@@ -149,10 +155,16 @@ function TVshows() {
                             On the Air ( week )
                         </div>
                         <div className="card-body bg-dark-1">
-                            {onTheAir && onTheAir.slice(0, 5).map((air, i) =>
-                                <div className="my-1" key={i}>
-                                    <Link className="text-light link-underline-style" to={`/tv_info/${air.id}`}><img src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
-                                </div>
+                            {onTheAir && onTheAir.slice(0, 5).map((air, i) => {
+                                return (air.poster_path ?
+                                    <div className="my-1" key={i}>
+                                        <Link className="text-light link-underline-style" to={`/tv_info/${air.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${air.poster_path}`} alt="new" /> {air.name}</Link>
+                                    </div> :
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/tv_info/${air.id}`}><img className="photo-opac" style={{ width: "45px", height: "60px" }} src={require(`../images/no-photo-object.png`)} alt="new" /> {air.name} </Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/on_the_air_tv/page/${1}`}>View On The Air</Link>
@@ -170,10 +182,16 @@ function TVshows() {
                             Top Rated TV Shows
                             </div>
                         <div className="card-body bg-dark-1">
-                            {topRatedTV.results && topRatedTV.results.slice(0, 5).map((topRated, i) =>
-                                <div key={i} className="my-1">
-                                    <Link className=" text-light link-underline-style" to={`/tv_info/${topRated.id}`}><img src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name} </Link>
-                                </div>
+                            {topRatedTV.results && topRatedTV.results.slice(0, 5).map((topRated, i) => {
+                                return (topRated.poster_path ?
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/tv_info/${topRated.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${topRated.poster_path}`} alt="new" /> {topRated.name} </Link>
+                                    </div> :
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/tv_info/${topRated.id}`}><img className="photo-opac" style={{ width: "45px", height: "60px" }} src={require(`../images/no-photo-object.png`)} alt="new" /> {topRated.name} </Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/top_rated_tv/page/${1}`}>View All Top Rated TV Shows</Link>
@@ -188,10 +206,16 @@ function TVshows() {
                             Popular TV Shows
                             </div>
                         <div className="card-body bg-dark-1">
-                            {popularTV.results && popularTV.results.slice(0, 5).map((popular, i) =>
-                                <div key={i} className="my-1">
-                                    <Link className=" text-light link-underline-style" to={`/tv_info/${popular.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.name} </Link>
-                                </div>
+                            {popularTV.results && popularTV.results.slice(0, 5).map((popular, i) => {
+                                return (popular.poster_path ?
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/tv_info/${popular.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${popular.poster_path}`} alt="new" /> {popular.name} </Link>
+                                    </div> :
+                                    <div key={i} className="my-1">
+                                        <Link className=" text-light link-underline-style" to={`/tv_info/${popular.id}`}><img className="photo-opac" style={{ width: "45px", height: "60px" }} src={require(`../images/no-photo-object.png`)} alt="new" /> {popular.name} </Link>
+                                    </div>
+                                )
+                            }
                             )}
                             <div style={{ textAlign: 'center' }}>
                                 <Link className="btn btn-outline-dark text-light link-underline-style" style={{ margin: 'auto' }} to={`/tv_shows/popular_tv/page/${1}`}>View All Popular TV shows</Link>

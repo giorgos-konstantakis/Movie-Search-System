@@ -100,14 +100,19 @@ function PopularPeople(props) {
                             <div className="col-md-4">
                                 {popularPeople.results && popularPeople.results.map((popular, i) => {
                                     count += 1;
-                                    console.log(popular.profile_path)
+                                    let source = '';
+                                    if (popular.gender === 1) {
+                                        source = `no-photo-woman.png`
+                                    } else {
+                                        source = `no-photo-male.jpg`
+                                    }
                                     return (!popular.profile_path ?
                                         <div key={i} className="card mb-2">
                                             <div className="card-header card-header-font-sz text-white text-center bg-dark">
                                                 <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
                                             <div className="card-body bg-dark-1">
-                                                <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
+                                                <img style={{ width: "300px", height: "450px" }} src={require(`../../images/${source}`)} alt="" />
                                             </div>
                                         </div>
                                         : <div key={i} className="card mb-2">
@@ -125,13 +130,19 @@ function PopularPeople(props) {
                             <div className="col-md-4">
                                 {popularPeople2.results && popularPeople2.results.map((popular, i) => {
                                     count += 1;
+                                    let source = '';
+                                    if (popular.gender === 1) {
+                                        source = `no-photo-woman.png`
+                                    } else {
+                                        source = `no-photo-male.jpg`
+                                    }
                                     return (!popular.profile_path ?
                                         <div key={i} className="card mb-2">
                                             <div className="card-header card-header-font-sz text-white text-center bg-dark">
                                                 <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
                                             <div className="card-body bg-dark-1">
-                                                <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
+                                                <img style={{ width: "300px", height: "450px" }} src={require(`../../images/${source}`)} alt="" />
                                             </div>
                                         </div>
                                         : <div key={i} className="card mb-2">
@@ -149,13 +160,19 @@ function PopularPeople(props) {
                             <div className="col-md-4">
                                 {popularPeople3.results && popularPeople3.results.map((popular, i) => {
                                     count += 1;
+                                    let source = '';
+                                    if (popular.gender === 1) {
+                                        source = `no-photo-woman.png`
+                                    } else {
+                                        source = `no-photo-male.jpg`
+                                    }
                                     return (!popular.profile_path ?
                                         <div key={i} className="card mb-2">
                                             <div className="card-header card-header-font-sz text-white text-center bg-dark">
                                                 <Link className="text-white link-underline-style" to={`/people/${popular.id}`}>{popular.name}</Link>
                                             </div>
                                             <div className="card-body bg-dark-1">
-                                                <img style={{ width: "300px", height: "450px" }} src={`https://tanzolymp.com/images/default-non-user-no-photo-1.jpg`} alt="" />
+                                                <img style={{ width: "300px", height: "450px" }} src={require(`../../images/${source}`)} alt="" />
                                             </div>
                                         </div>
                                         : <div key={i} className="card mb-2">

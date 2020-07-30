@@ -98,7 +98,7 @@ function NowPlayingMovies(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${nowPlaying.id}`}><img src={`https://image.tmdb.org/t/p/w45/${nowPlaying.poster_path}`} alt="new" /> {nowPlaying.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${nowPlaying.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${nowPlaying.poster_path}`} alt="new" /> {nowPlaying.title}</Link>
                                 </div>
                             )
                         }
@@ -107,7 +107,7 @@ function NowPlayingMovies(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${nowPlaying.id}`}><img src={`https://image.tmdb.org/t/p/w45/${nowPlaying.poster_path}`} alt="new" /> {nowPlaying.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${nowPlaying.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${nowPlaying.poster_path}`} alt="new" /> {nowPlaying.title}</Link>
                                 </div>
                             )
                         }
@@ -116,7 +116,7 @@ function NowPlayingMovies(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${nowPlaying.id}`}><img src={`https://image.tmdb.org/t/p/w45/${nowPlaying.poster_path}`} alt="new" /> {nowPlaying.title}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/movie_info/${nowPlaying.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${nowPlaying.poster_path}`} alt="new" /> {nowPlaying.title}</Link>
                                 </div>
                             )
                         }

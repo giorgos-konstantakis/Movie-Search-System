@@ -220,23 +220,55 @@ function TVshowInfo(props) {
                     </div>
                     <div className="card-body bg-dark-1 text-white">
                         <div className="container">
-                            {showCast.map((cast, i) =>
-                                <div className="py-4 row" key={i}>
-                                    <Link to={`/people/${cast.id}`}>
-                                        <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${cast.profile_path}`} alt="new" /> </div>
-                                    </Link>
-                                    <div className="py-3 col-md-3 text-center"><Link className="text-light link-underline-style" to={`/people/${cast.id}`}> {cast.name}</Link> </div>
-                                    <div className="py-3 col-md-3">{cast.character} </div>
-                                </div>
+                            {showCast.map((cast, i) => {
+                                let source = '';
+                                if (cast.gender === 1) {
+                                    source = `no-photo-woman.png`
+                                } else {
+                                    source = `no-photo-male.jpg`
+                                }
+                                return (cast.profile_path ?
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/people/${cast.id}`}>
+                                            <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${cast.profile_path}`} alt="new" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${cast.id}`}>{cast.name}</Link> </div>
+                                        <div className="py-3 col-md-3">{cast.character} </div>
+                                    </div> :
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/people/${cast.id}`}>
+                                            <div className="col-md-1"> <img style={{ width: "45px", height: "60px" }} src={require(`../../images/${source}`)} alt="" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${cast.id}`}>{cast.name}</Link> </div>
+                                        <div className="py-3 col-md-3">{cast.character} </div>
+                                    </div>
+                                )
+                            }
                             )}
-                            {showCrew.map((crew, i) =>
-                                <div className="py-4 row" key={i}>
-                                    <Link to={`/people/${crew.id}`}>
-                                        <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${crew.profile_path}`} alt="new" /> </div>
-                                    </Link>
-                                    <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${crew.id}`}>{crew.name}</Link> </div>
-                                    <div className="py-3 col-md-3">{crew.job} </div>
-                                </div>
+                            {showCrew.map((crew, i) => {
+                                let source = '';
+                                if (crew.gender === 1) {
+                                    source = `no-photo-woman.png`
+                                } else {
+                                    source = `no-photo-male.jpg`
+                                }
+                                return (crew.profile_path ?
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/people/${crew.id}`}>
+                                            <div className="col-md-1"> <img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${crew.profile_path}`} alt="new" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${crew.id}`}>{crew.name}</Link> </div>
+                                        <div className="py-3 col-md-3">{crew.job} </div>
+                                    </div> :
+                                    <div className="py-4 row" key={i}>
+                                        <Link to={`/people/${crew.id}`}>
+                                            <div className="col-md-1"> <img style={{ width: "45px", height: "60px" }} src={require(`../../images/${source}`)} alt="" /> </div>
+                                        </Link>
+                                        <div className="py-3 col-md-3 text-center"> <Link className="text-light link-underline-style" to={`/people/${crew.id}`}>{crew.name}</Link> </div>
+                                        <div className="py-3 col-md-3">{crew.job} </div>
+                                    </div>
+                                )
+                            }
                             )}
                         </div>
                     </div>

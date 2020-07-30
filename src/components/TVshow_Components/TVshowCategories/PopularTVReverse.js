@@ -100,7 +100,7 @@ function PopularTVReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
                                 </div>
                             )
                         }
@@ -109,7 +109,7 @@ function PopularTVReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
                                 </div>
                             )
                         }
@@ -118,7 +118,7 @@ function PopularTVReverse(props) {
                             count += 1;
                             return (
                                 <div key={i} className="my-1 py-2">
-                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
+                                    <Link className="text-light link-underline-style name-title-font-sz" to={`/tv_info/${popularTv.id}`}><img className="photo-opac" src={`https://image.tmdb.org/t/p/w45/${popularTv.poster_path}`} alt="new" /> {popularTv.name}</Link>
                                 </div>
                             )
                         }

@@ -82,7 +82,7 @@ function MovieInfoReverse(props) {
         <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
-                <div className="card">
+                <div className="card border-info border-thickness">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {movieDetails.title}
                     </div>
@@ -162,7 +162,7 @@ function MovieInfoReverse(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Trailers etc for {movieDetails.title}
                     </div>
@@ -178,7 +178,7 @@ function MovieInfoReverse(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Recommended movies to watch after {movieDetails.title}
                     </div>
@@ -194,7 +194,7 @@ function MovieInfoReverse(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {movieDetails.title}'s cast and crew
                     </div>

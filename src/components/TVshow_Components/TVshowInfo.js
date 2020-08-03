@@ -81,7 +81,7 @@ function TVshowInfo(props) {
         <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
-                <div className="card">
+                <div className="card border-info border-thickness">
                     <div className="card-header text-white text-center bg-dark">
                         <div className="card-header-font-sz"> {showDetails.original_name}</div>
                         <div>{showDetails.number_of_seasons} seasons,{showDetails.number_of_episodes} episodes</div>
@@ -164,7 +164,7 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Seasons
                     </div>
@@ -182,7 +182,7 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Trailers etc for {showDetails.original_name}
                     </div>
@@ -198,7 +198,7 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         Recommended tv shows to watch after {showDetails.original_name}
                     </div>
@@ -214,7 +214,7 @@ function TVshowInfo(props) {
                     </div>
                 </div>
 
-                <div className="card mt-3">
+                <div className="card border-info border-thickness mt-3">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         {showDetails.original_name}'s cast and crew
                     </div>

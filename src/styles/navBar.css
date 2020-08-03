@@ -14,6 +14,6 @@
     font-family: 'Verdana', Times, serif;
 }
 
-.nav-item-style:hover{
-    opacity: 0.5;
+.nav-item-style:hover,.navbar-brand-style:hover{
+    border: 2px solid rgb(13, 66, 83);
 }

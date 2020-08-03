@@ -125,33 +125,33 @@ function PeopleAndOrganizations() {
                     <div className="col-md-4">
                         <div className="row" style={{ height: "120px" }}>
                             <div className="col text-center">
-                                <button className="btn btn-outline-dark text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalPeople}>
+                                <button className="btn btn-outline-dark search text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalPeople}>
                                     Search People
                                 </button>
                                 <Modal style={modalStyles} isOpen={modalPeople} onRequestClose={closeModalPeople}>
-                                    <button className="btn btn-outline-light" onClick={closeModalPeople} style={{ float: "right" }}>close</button>
+                                    <button className="btn search btn-outline-light" onClick={closeModalPeople} style={{ float: "right" }}>close</button>
                                     <PopupSearchPeople />
                                 </Modal>
                             </div>
                         </div>
                         <div className="row" style={{ height: "120px" }}>
                             <div className="col text-center">
-                                <button className="btn btn-outline-dark  text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalCompanies}>
+                                <button className="btn btn-outline-dark search text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalCompanies}>
                                     Search Companies
                                 </button>
                                 <Modal style={modalStyles} isOpen={modalCompanies} onRequestClose={closeModalCompanies} size='sm'>
-                                    <button className="btn btn-outline-light" onClick={closeModalCompanies} style={{ float: "right" }}>close</button>
+                                    <button className="btn search btn-outline-light" onClick={closeModalCompanies} style={{ float: "right" }}>close</button>
                                     <PopupSearchCompanies />
                                 </Modal>
                             </div>
                         </div>
                         <div className="row" style={{ height: "120px" }}>
                             <div className="col text-center">
-                                <button className="btn btn-outline-dark text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalNetworks}>
+                                <button className="btn btn-outline-dark search text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalNetworks}>
                                     Search Networks
                                 </button>
                                 <Modal style={modalStyles} isOpen={modalNetworks} onRequestClose={closeModalNetworks} size='sm'>
-                                    <button className="btn btn-outline-light" onClick={closeModalNetworks} style={{ float: "right" }}>close</button>
+                                    <button className="btn search btn-outline-light" onClick={closeModalNetworks} style={{ float: "right" }}>close</button>
                                     <PopupSearchNetwork />
                                 </Modal>
                             </div>

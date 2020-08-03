@@ -67,12 +67,12 @@ function Episode(props) {
         <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="ml-5 mt-3" style={{ float: "left" }}>
-                <Link className="btn btn-outline-dark text-light link-underline-style" to={`/episodes/${props.match.params.tv_show_name}/${props.match.params.season_number}/${props.match.params.id}`}>Previous Page...</Link>
+                <Link className="btn btn-outline-dark text-light search link-underline-style" to={`/episodes/${props.match.params.tv_show_name}/${props.match.params.season_number}/${props.match.params.id}`}>Previous Page...</Link>
             </div>
             <div className="container my-3">
                 <h2 className="ml-4 text-center text-light">{props.match.params.tv_show_name}, Season {props.match.params.season_number},Episode {props.match.params.episode_number}</h2>
                 <div className="container mt-3">
-                    <div className="card mt-3">
+                    <div className="card mt-3 border-info border-thickness">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             {episodeDetails.name}
                         </div>
@@ -100,7 +100,7 @@ function Episode(props) {
                         </div>
                     </div>
 
-                    <div className="card mt-3">
+                    <div className="card border-info border-thickness mt-3">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Episode's Images
                         </div>
@@ -116,7 +116,7 @@ function Episode(props) {
                         </div>
                     </div>
 
-                    <div className="card mt-3">
+                    <div className="card border-info border-thickness mt-3">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Episode's Videos etc
                         </div>
@@ -132,7 +132,7 @@ function Episode(props) {
                         </div>
                     </div>
 
-                    <div className="card mt-3">
+                    <div className="card border-info border-thickness mt-3">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Episode's cast and crew
                     </div>

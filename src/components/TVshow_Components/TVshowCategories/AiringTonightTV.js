@@ -48,7 +48,7 @@ function AiringTonightTV(props) {
             <div className="text-center col-md-12">
                 <span className="mr-5 card-header-font-sz text-white">Results: {(airingTonight.page - 1) * 20 + 1} - {airingTonight3.page * 20}</span>
                 <Link className="card-header-font-sz" to={`/tv_shows/airing_tonight_tv_reverse/page/${airingTonight.page + 3}`}>
-                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
+                    <button type="button" className="btn search btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i className="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -62,7 +62,7 @@ function AiringTonightTV(props) {
             <div className="text-center col-md-12">
                 <span className="mr-5 card-header-font-sz text-white">Results: {(airingTonight.page - 1) * 20 + 1} - {(airingTonight.page - 1) * 20 + 1 + count}</span>
                 <Link className="card-header-font-sz" to={`/tv_shows/airing_tonight_tv_reverse/page/${airingTonight.page - 3}`}>
-                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
+                    <button type="button" className="btn search btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                     </button>
                 </Link>
@@ -76,12 +76,12 @@ function AiringTonightTV(props) {
             <div className="text-center col-md-12">
                 <span className="mr-5 card-header-font-sz text-white">Results: {(airingTonight.page - 1) * 20 + 1} - {airingTonight3.page * 20}</span>
                 <Link className="mr-5 card-header-font-sz" to={`/tv_shows/airing_tonight_tv_reverse/page/${airingTonight.page - 3}`}>
-                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
+                    <button type="button" className="btn search btn-outline-dark card-header-font-sz text-white p-2">
                         <i class="fas fa-angle-double-left mr-2"></i>Previous Page
                 </button>
                 </Link>
                 <Link className="card-header-font-sz" to={`/tv_shows/airing_tonight_tv_reverse/page/${airingTonight.page + 3}`}>
-                    <button type="button" className="btn btn-outline-dark card-header-font-sz text-white p-2">
+                    <button type="button" className="btn search btn-outline-dark card-header-font-sz text-white p-2">
                         Next Page<i class="fas fa-angle-double-right ml-2"></i>
                     </button>
                 </Link>
@@ -93,7 +93,7 @@ function AiringTonightTV(props) {
         <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="container my-3">
-                <div className="card">
+                <div className="card border-info border-thickness">
                     <div className="card-header card-header-font-sz text-white text-center bg-dark">
                         TV : Airing Tonight
                     </div>

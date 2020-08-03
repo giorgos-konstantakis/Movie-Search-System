@@ -22,13 +22,13 @@ function SeasonEpisodes(props) {
         <div className="bg-dark-2 pb-5">
             <NavBar />
             <div className="ml-5 mt-3" style={{ float: "left" }}>
-                <Link className="btn btn-outline-dark text-light link-underline-style" to={`/TV_info/${props.match.params.id}`}>Previous Page...</Link>
+                <Link className="btn btn-outline-dark search text-light link-underline-style" to={`/TV_info/${props.match.params.id}`}>Previous Page...</Link>
             </div>
             <div className="container my-3">
                 <h2 className="ml-4 text-center text-light">{props.match.params.tv_show_name}, Season {props.match.params.season_number}</h2>
                 {episodeDetails && episodeDetails.map((episode, i) =>
                     <div className="container mt-3" key={i}>
-                        <div className="card">
+                        <div className="card border-info border-thickness">
                             <div className="card-header card-header-font-sz text-white text-center bg-dark">
                                 {episode.name}
                             </div>

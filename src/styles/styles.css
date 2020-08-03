@@ -48,3 +48,16 @@ h2{
     border-width: 2px !important;
     border-radius:5px !important;
 }
+
+.btn{
+    border: 2px solid #5bc0de !important;
+}
+
+.search{
+    background: #242729 !important;
+}
+
+.btn:hover{
+    border: 2px solid rgb(13, 66, 83) !important;
+    background: #1a1a1a !important;
+}

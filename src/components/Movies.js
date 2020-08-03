@@ -101,27 +101,13 @@ function Movies() {
                     <h3 className="page-title bg-dark-1 py-3 text-light border-info border-thickness">MOVIES</h3>
                 </div>
                 <div className="col-md-2 container text-center">
-                    <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModal}>
+                    <button className="btn btn-outline-dark text-light p-3 search" style={{ fontSize: '20px' }} onClick={openModal}>
                         Search Movie
                     </button>
                     <Modal style={modalStyles} isOpen={modalOpen} onRequestClose={closeModal} size='sm'>
-                        <button className="btn btn-outline-light" onClick={closeModal} style={{ float: "right" }}>close</button>
+                        <button className="btn search btn-outline-light" onClick={closeModal} style={{ float: "right" }}>close</button>
                         <PopupSearchMovies />
                     </Modal>
-                </div>
-            </div>
-
-            <div className="row mt-2 mx-2">
-                <div className="col-md-12" >
-                    <div className="card border-info border-thickness">
-                        <div className="card-header card-header-font-sz text-white text-center bg-dark">
-                            Latest
-                        </div>
-                        <div className="card-body bg-dark-1 text-white">
-                            <div className="text-center">{latestMovie.title}</div>
-                            Overview:<div>{latestMovie.overview}</div>
-                        </div>
-                    </div>
                 </div>
             </div>
 

@@ -96,7 +96,7 @@ function TVshows() {
 
             <div className="row mt-2 mx-2">
                 <div className="col-md-10 container text-center">
-                    <h3 className="page-title bg-dark-1 py-3 text-light">TV SHOWS</h3>
+                    <h3 className="page-title bg-dark-1 py-3 text-light border-info border-thickness">TV SHOWS</h3>
                 </div>
                 <div className="col-md-2 container text-center">
                     <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '19px' }} onClick={openModal}>
@@ -111,7 +111,7 @@ function TVshows() {
 
             <div className="row mt-2 mx-2">
                 <div className="col-md-12" >
-                    <div className="card">
+                    <div className="card border-info border-thickness">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Latest
                         </div>
@@ -127,7 +127,7 @@ function TVshows() {
             <div className="row mt-4 mx-2">
 
                 <div className="col-md-6">
-                    <div className="card">
+                    <div className="card border-info border-thickness">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Airing Tonight
                             </div>
@@ -150,7 +150,7 @@ function TVshows() {
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <div className="card">
+                    <div className="card border-info border-thickness">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             On the Air ( week )
                         </div>
@@ -177,7 +177,7 @@ function TVshows() {
             <div className="row mt-4 mb-5 mx-2">
 
                 <div className="col-md-6">
-                    <div className="card">
+                    <div className="card border-info border-thickness">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Top Rated TV Shows
                             </div>
@@ -201,7 +201,7 @@ function TVshows() {
                 </div>
 
                 <div className="col-md-6">
-                    <div className="card">
+                    <div className="card border-info border-thickness">
                         <div className="card-header card-header-font-sz text-white text-center bg-dark">
                             Popular TV Shows
                             </div>

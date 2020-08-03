@@ -7,7 +7,7 @@ import './styles/navBar.css';
 const Nav = () => (
     <nav className="navbar navbar-expand-md navbar-dark bg-dark-3">
         <div className="container py-3">
-            <Link to="/" className="navbar-brand p-2 text-white navbar-brand-style">Movie Searcher</Link>
+            <Link to="/" className="navbar-brand p-2 text-light navbar-brand-style">Movie Searcher</Link>
             <button className="navbar-toggler" dataToggle="collapse" dataTarget="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
             </button>

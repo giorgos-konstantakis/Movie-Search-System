@@ -1,3 +1,7 @@
+h2{
+    font-family: 'Verdana', Times, serif;
+}
+
 .bg-dark-1{
     background:#242729;
 }
@@ -13,18 +17,22 @@
 .page-title{
     border: 1px solid #f5f5f0;
     border-radius: 8px; 
+    font-family: 'Verdana', Times, serif;
 }
 
 .card-header-font-sz{
     font-size: 24px;
+    font-family: 'Verdana', Times, serif;
 }
 
 .card-footer-font-sz{
     font-size: 18px;
+    font-family: 'Verdana', Times, serif;
 }
 
 .link-underline-style{
     text-decoration:none !important;
+    font-family: 'Verdana', Times, serif;
 }
 
 .photo-opac:hover{
@@ -33,4 +41,10 @@
 
 .name-title-font-sz{
     font-size:20px;
+    font-family: 'Verdana', Times, serif;
+}
+
+.border-thickness{
+    border-width: 2px !important;
+    border-radius:5px !important;
 }

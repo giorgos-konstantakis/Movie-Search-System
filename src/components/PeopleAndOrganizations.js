@@ -80,7 +80,7 @@ function PeopleAndOrganizations() {
 
                 <div className="row">
                     <div className="col-md-8">
-                        <div className="card">
+                        <div className="card border-info border-thickness">
                             <div className="card-header card-header-font-sz text-white text-center bg-dark">
                                 Popular People
                             </div>
@@ -125,7 +125,7 @@ function PeopleAndOrganizations() {
                     <div className="col-md-4">
                         <div className="row" style={{ height: "120px" }}>
                             <div className="col text-center">
-                                <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModalPeople}>
+                                <button className="btn btn-outline-dark text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalPeople}>
                                     Search People
                                 </button>
                                 <Modal style={modalStyles} isOpen={modalPeople} onRequestClose={closeModalPeople}>
@@ -136,7 +136,7 @@ function PeopleAndOrganizations() {
                         </div>
                         <div className="row" style={{ height: "120px" }}>
                             <div className="col text-center">
-                                <button className="btn btn-outline-dark  text-light p-3" style={{ fontSize: '20px' }} onClick={openModalCompanies}>
+                                <button className="btn btn-outline-dark  text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalCompanies}>
                                     Search Companies
                                 </button>
                                 <Modal style={modalStyles} isOpen={modalCompanies} onRequestClose={closeModalCompanies} size='sm'>
@@ -147,7 +147,7 @@ function PeopleAndOrganizations() {
                         </div>
                         <div className="row" style={{ height: "120px" }}>
                             <div className="col text-center">
-                                <button className="btn btn-outline-dark text-light p-3" style={{ fontSize: '20px' }} onClick={openModalNetworks}>
+                                <button className="btn btn-outline-dark text-light p-3 border-info border-thickness" style={{ fontSize: '20px' }} onClick={openModalNetworks}>
                                     Search Networks
                                 </button>
                                 <Modal style={modalStyles} isOpen={modalNetworks} onRequestClose={closeModalNetworks} size='sm'>

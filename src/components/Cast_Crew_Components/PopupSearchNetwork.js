@@ -11,7 +11,7 @@ function PopupSearchNetwork() {
 
     // Get Top Rated Movies
     const fetchsearchNetworks = (query) => {
-        axios({ method: 'get', url: `${process.env.REACT_APP_API}search/movie?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=4&query=${query}`, timeout: 3000 })
+        axios({ method: 'get', url: `${process.env.REACT_APP_API}search/network?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=4&query=${query}`, timeout: 3000 })
             .then(res => { setsearchNetworks(res.data.results) })
             .catch(error => alert('Error fetching the movies.'))
     };
@@ -31,7 +31,7 @@ function PopupSearchNetwork() {
             <div>
                 {searchNetworks.map((network, i) =>
                     <div className="py-1" key={i} action variant="secondary">
-
+                        <Link className="link-underline-style text-light" > <img src={`https://image.tmdb.org/t/p/w45/${network.poster_path}`} alt="new" /> {network.title} </Link>
                     </div>
                 )}
             </div>

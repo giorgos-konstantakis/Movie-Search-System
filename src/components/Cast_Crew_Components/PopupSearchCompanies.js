@@ -11,7 +11,7 @@ function PopupSearchCompanies() {
 
     // Get Top Rated Movies
     const fetchsearchCompanies = (query) => {
-        axios({ method: 'get', url: `${process.env.REACT_APP_API}search/movie?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=4&query=${query}`, timeout: 3000 })
+        axios({ method: 'get', url: `${process.env.REACT_APP_API}search/company?api_key=2e7b1176bc4b39e965d3bc9552afd324&language=en-US&page=4&query=${query}`, timeout: 3000 })
             .then(res => { setsearchCompanies(res.data.results) })
             .catch(error => alert('Error fetching the movies.'))
     };
@@ -30,8 +30,8 @@ function PopupSearchCompanies() {
             </Form><br />
             <div>
                 {searchCompanies.map((company, i) =>
-                    <div key={i} action variant="secondary">
-
+                    <div className="py-1" key={i} action variant="secondary">
+                        <Link className="link-underline-style text-light" to={company.homepage}> <img src={`https://image.tmdb.org/t/p/w45/${company.logo_path}`} alt="new" /> {company.name} </Link>
                     </div>
                 )}
             </div>
